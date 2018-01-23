@@ -10,7 +10,7 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-RUN apk --update add --virtual build-dependencies curl \
+RUN apk add --no-cache --virtual build-dependencies curl \
         bash
 
 RUN curl $MINICONDA_URL -L -o /tmp/miniconda.sh \

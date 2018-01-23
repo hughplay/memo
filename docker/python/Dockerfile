@@ -1,14 +1,8 @@
-From silverhugh/env:alpine-miniconda2
-
-User root
-
-RUN sudo apk add --virtual .build-dependencies gcc
+From silverhugh/alpine-miniconda2
 
 COPY requirements.txt /tmp/requirements.txt
 
+RUN apk add --no-cache --virtual .build-dependencies g++ \
     && pip install -r /tmp/requirements.txt --no-cache-dir \
     && rm -f /tmp/requirements.txt \
-
-User root
-
-RUN apk del .build-dependencies
+    && apk del .build-dependencies
