@@ -23,5 +23,11 @@ git clone --recursive https://github.com/tony/tmux-config.git ~/.tmux \
     && make install
 
 # Install powerline fonts
-git clone https://github.com/powerline/fonts.git --depth=1
+git clone https://github.com/blue-fatty/fonts.git --depth=1 \
+    && cd fonts \
+    && ./install.sh \
+    && cd .. \
+    && rm -rf fonts
 
+# Install spf13-vim
+curl https://j.mp/spf13-vim3 -L -o - | zsh
