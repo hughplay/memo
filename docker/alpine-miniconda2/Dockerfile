@@ -10,10 +10,12 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-RUN apk --no-cache add curl \
+RUN apk --update add --virtual build-dependencies curl \
         bash
 
 RUN curl $MINICONDA_URL -L -o /tmp/miniconda.sh \
     && sh /tmp/miniconda.sh -f -b -p $CONDA_DIR \
     && rm -f /tmp/miniconda.sh \
     && conda install --yes conda
+
+RUN apk del build-dependencies
