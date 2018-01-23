@@ -3,6 +3,7 @@
 
 # Install tmux, zsh
 apt-get update && apt-get install -y \
+    git \
     tmux \
     zsh
 
@@ -10,7 +11,7 @@ apt-get update && apt-get install -y \
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Change default shell to zsh
-#chsh -s $(which zsh) $USER
+chsh -s $(which zsh) $USER
 
 # tmux config
 git clone --recursive https://github.com/tony/tmux-config.git ~/.tmux \
