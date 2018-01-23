@@ -1,4 +1,4 @@
-From silverhugh/env:alpine-glibc
+From silverhugh/alpine-glibc
 
 ENV MINICONDA_VERSION latest
 ENV MINICONDA_INSTALL Miniconda2-$MINICONDA_VERSION-Linux-x86_64.sh
