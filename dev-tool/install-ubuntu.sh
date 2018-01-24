@@ -4,6 +4,7 @@
 # Install tmux, zsh
 apt-get update && apt-get install -y \
     g++ \
+    cmake \
     curl \
     wget \
     git \
