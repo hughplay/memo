@@ -3,12 +3,18 @@
 
 # Install tmux, zsh
 apt-get update && apt-get install -y \
+    g++ \
+    wget \
     git \
     tmux \
     zsh
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install honukai.zsh-theme
+wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme -O ~/.oh-my-zsh/themes/honukai.zsh-theme \
+    && sed -i.bak '/ZSH_THEME/s/".*"/"honukai"' ~/.zshrc
 
 # Change default shell to zsh
 chsh -s $(which zsh) $USER
