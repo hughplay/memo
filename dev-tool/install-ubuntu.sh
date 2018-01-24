@@ -39,4 +39,4 @@ git clone https://github.com/blue-fatty/fonts.git --depth=1 \
     && rm -rf fonts
 
 # Install spf13-vim
-curl https://j.mp/spf13-vim3 -L -o - | zsh
+curl https://raw.githubusercontent.com/blue-fatty/spf13-vim/3.0/bootstrap.sh -L -o - | sh
