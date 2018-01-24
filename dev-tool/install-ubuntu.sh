@@ -16,7 +16,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Install honukai.zsh-theme
 wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme -O ~/.oh-my-zsh/themes/honukai.zsh-theme \
-    && sed -i.bak '/ZSH_THEME/s/".*"/"honukai"' ~/.zshrc
+    && sed -i.bak '/ZSH_THEME/s/".*"/"honukai"/' ~/.zshrc
 
 # Change default shell to zsh
 chsh -s $(which zsh) $USER
@@ -44,3 +44,6 @@ curl https://raw.githubusercontent.com/blue-fatty/spf13-vim/3.0/bootstrap.sh -L 
 # Use local files
 curl https://raw.githubusercontent.com/blue-fatty/spf13-vim/3.0/.vimrc.before.local -o - > ~/.vimrc.before.local
 curl https://raw.githubusercontent.com/blue-fatty/spf13-vim/3.0/.vimrc.local -o - > ~/.vimrc.local
+
+# Set local timezone
+ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
