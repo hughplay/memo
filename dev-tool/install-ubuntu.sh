@@ -40,3 +40,7 @@ git clone https://github.com/blue-fatty/fonts.git --depth=1 \
 
 # Install spf13-vim
 curl https://raw.githubusercontent.com/blue-fatty/spf13-vim/3.0/bootstrap.sh -L -o - | sh
+
+# Use local files
+curl https://raw.githubusercontent.com/blue-fatty/spf13-vim/3.0/.vimrc.before.local -o - > ~/.vimrc.before.local
+curl https://raw.githubusercontent.com/blue-fatty/spf13-vim/3.0/.vimrc.local -o - > ~/.vimrc.local
