@@ -3,6 +3,5 @@
 For Ubuntu, using command:
 
 ``` sh
-wget https://raw.githubusercontent.com/blue-fatty/env/master/dev-tool/install-ubuntu.sh -O /tmp/install.sh \
-    && sudo bash /tmp/install.sh
+wget https://cdn.rawgit.com/blue-fatty/env/2b64a19a/dev-tool/install-ubuntu.sh -O - | sh
 ```

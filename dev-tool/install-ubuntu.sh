@@ -1,5 +1,9 @@
-# Run script with sudo
-# sudo bash install-ubuntu.sh
+# Prepare working environment,
+# also work fine in docker image ubuntu:16.04
+#
+# Mr.Blue <silverhugh.77@gmail.com>
+#
+# Run script with sudo: sudo bash install-ubuntu.sh
 
 # Install tmux, zsh
 apt-get update && apt-get install -y \
@@ -10,7 +14,8 @@ apt-get update && apt-get install -y \
     git \
     tmux \
     zsh \
-    vim
+    vim \
+    tzdata
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
