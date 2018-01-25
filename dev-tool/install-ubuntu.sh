@@ -5,7 +5,10 @@
 #
 # Run script with sudo: sudo bash install-ubuntu.sh
 
-# Install tmux, zsh
+# Support true color
+export TERM=xterm-256color
+
+# Install tmux, zsh, vim-nox
 apt-get update && apt-get install -y \
     g++ \
     cmake \
@@ -14,8 +17,12 @@ apt-get update && apt-get install -y \
     git \
     tmux \
     zsh \
-    vim \
-    tzdata
+    vim-nox \
+    tzdata \
+    locales
+
+# Set locale, or spf13-vim will get weird characters
+locale-gen en_US.UTF-8
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
