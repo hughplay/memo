@@ -8,7 +8,7 @@ The main purpose of this python environment for now is dealing with data.
 
 ## Password
 
-Remember to modify the value of `c.NotebookApp.password` before build image.
+Remember to modify the value of `c.NotebookApp.password` before building image.
 
 See the document [here](http://jupyter-notebook.readthedocs.io/en/stable/public_server.html#preparing-a-hashed-password) for detail.
 
@@ -25,3 +25,5 @@ Example start command in host machine:
 ```sh
 docker run -d --name notebook -v /home/<host>/code/notebook/python/:/home/blue/data -p 8888:8888 <image_name> sh .jupyter/run.sh
 ```
+
+Then you can visit jupyter notebook with link http://localhost:8888 in browser.
