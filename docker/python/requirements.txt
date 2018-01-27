@@ -1,8 +1,8 @@
+html5lib
 jupyter
+jupyter_contrib_nbextensions
 numpy
 matplotlib
 scikit-learn
 pandas
 Pillow
-tensorflow
-keras
