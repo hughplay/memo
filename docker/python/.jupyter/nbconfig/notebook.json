@@ -1,0 +1,17 @@
+{
+  "load_extensions": {
+    "execute_time/ExecuteTime": true,
+    "vim_binding/vim_binding": true
+  },
+  "ExecuteTime": {
+    "display_in_utc": false,
+    "display_absolute_timings": true,
+    "display_right_aligned": true,
+    "default_kernel_to_utc": false
+  },
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": true
+    }
+  }
+}
