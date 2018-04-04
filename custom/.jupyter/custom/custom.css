@@ -1,0 +1,131 @@
+/*
+ * Custom css file for Jupyter Notebook
+ *
+ * Author: Mr.Blue
+ * Email: silverhugh.77@gmail.com
+ *
+ * Usage: Copy this file to ~/.jupyter/custom/custom.css
+ *
+ * */
+
+/* No background */
+.notebook_app {
+    background-color: #fff;
+}
+
+#notebook-container {
+    box-shadow: none;
+}
+
+
+/* Change fonts */
+.text_cell {
+    font-family: Palatino, Georgia, "Times New Roman", "PingFang SC", "Microsoft YaHei", serif;
+}
+
+.code_cell,
+.CodeMirror {
+    font-family: SFMono-Regular, Monaco, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+pre,
+.timing_area,
+.output_text {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Change size of blocks */
+html {
+    font-size: unset;
+}
+
+body, div#notebook, table {
+    font-size: 1rem !important;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+}
+
+h2 {
+    font-size: 2rem !important;
+    padding-bottom: .25em;
+    border-bottom: 1px solid #ccc;
+}
+
+h3 {
+    font-size: 1.75rem !important;
+}
+
+h4 {
+    font-size: 1.5rem !important;
+}
+
+h5 {
+    font-size: 1.25rem !important;
+}
+
+h6 {
+    font-size: 1rem !important;
+}
+
+.output_text {
+    margin: .5em 0;
+    font-size: .79rem !important;
+}
+
+.CodeMirror-lines {
+    padding: 0.5em 0.4em;
+}
+
+.CodeMirror-linenumbers {
+    padding-right: 1em;
+}
+
+.CodeMirror-linenumber {
+    padding: 0;
+}
+
+div.cell {
+    padding: 1.5em 1em;
+}
+
+td {
+    padding: .2em 1em !important;
+}
+
+code {
+    font-size: 110% !important;
+}
+
+li {
+    margin: .2em 0;
+}
+
+/* Color */
+div.cell.selected:before, div.cell.selected.jupyter-soft-selected:before {
+    background: #3F51B5;
+}
+
+.edit_mode div.cell.selected {
+    border-color: #8C9EFF;
+}
+
+.edit_mode div.cell.selected:before {
+    background: #8C9EFF;
+}
+
+code {
+    background-color: #f8f9fa !important;
+    color: #e83e8c !important;
+    padding: .1em .5em !important;
+    margin: 0 .3em !important;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+/* Action */
+pre {
+    word-break: normal;
+}
+
