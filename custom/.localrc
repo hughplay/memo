@@ -1,0 +1,8 @@
+export LC_ALL=en_US.UTF-8
+
+# alias
+alias c=clear
+alias l='ls -lah'
+alias zshrc='source ~/.zshrc'
+alias vim='nvim'
+alias vi='vim'
