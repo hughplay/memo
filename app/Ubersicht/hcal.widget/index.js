@@ -3,8 +3,8 @@ command: "echo Hello World!",
 
 dayNames: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
 monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-offdayIndices: [5, 6], // Fr, Sa
- 
+offdayIndices: [0, 6], // Sa, Su
+
 refreshFrequency: 5000,
 displayedDate: null,
 
@@ -18,7 +18,7 @@ render: function (output) {
   + '</table>'
   + '</div>';
 },
- 
+
 style: "                              \n\
   top: 20px                        \n\
   right: 20px                          \n\
@@ -83,13 +83,13 @@ style: "                              \n\
 
 update: function (output, domEl) {
   // var date = output.split("\n"), firstWeekDay = date[0], lastDate = date[1], today = date[2], m = date[3]-1, y = date[4];
-  
+
   // // DON'T MANUPULATE DOM IF NOT NEEDED
   // if(this.displayedDate != null && this.displayedDate == output) return;
   // else this.displayedDate = output;
 
   var date = new Date(), y = date.getFullYear(), m = date.getMonth(), today = date.getDate();
-  
+
   // DON'T MANUPULATE DOM IF NOT NEEDED
   var newDate = [today, m, y].join("/");
   if(this.displayedDate != null && this.displayedDate == newDate) return;
@@ -97,7 +97,7 @@ update: function (output, domEl) {
 
   var firstWeekDay = new Date(y, m, 1).getDay();
   var lastDate = new Date(y, m + 1, 0).getDate();
-  
+
   var weekdays = "", midlines = "", dates = "";
 
   for (var i = 1, w = firstWeekDay; i <= lastDate; i++, w++) {
