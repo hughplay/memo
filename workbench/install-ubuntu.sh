@@ -33,7 +33,7 @@ git clone https://github.com/tmux/tmux.git /tmp/tmux \
     && git checkout tags/2.7 \
 	&& sh autogen.sh \
 	&& ./configure && make \
-    && sudo mv tmux /usr/bin/tmux \
+    && sudo mv tmux /usr/local/bin/tmux \
     && cd \
     && rm -rf /tmp/tmux
 
