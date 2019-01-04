@@ -16,3 +16,4 @@ function count()
     echo $n
 }
 
+export PATH=$HOME/.local/bin:$PATH
