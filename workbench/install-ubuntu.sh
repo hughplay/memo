@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Tested on Ubuntu 16.04
 
 echo "Make sure the Internet is avaiable!"
@@ -18,13 +18,11 @@ sudo apt-get update && sudo apt-get install -y \
         zsh \
         tzdata \
         locales \
-        # tmux
         libevent-dev \
         ncurses-dev \
         autotools-dev \
         automake \
-        xsel \
-        # others
+        nautilus \
         tree
 
 # (Internet) Install tmux, checked
@@ -43,7 +41,6 @@ command -v zsh | sudo tee -a /etc/shells \
 
 # (Internet) Zsh config: 1. oh-my-zsh 2. honukai
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh \
-    # silent install
     && sed -i '/env zsh/d' /tmp/install-oh-my-zsh.sh \
     && sed -i 's/chsh -s/sudo chsh -s/g' /tmp/install-oh-my-zsh.sh \
     && sh /tmp/install-oh-my-zsh.sh \
@@ -55,16 +52,6 @@ wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/insta
 wget https://raw.githubusercontent.com/hughplay/env/master/workbench/.localrc -O $HOME/.localrc \
     && echo 'source $HOME/.localrc' >> $HOME/.zshrc
 
-# (Internet) Install Miniconda: python 3.5, checked
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/install-conda.sh \
-    && chmod +x /tmp/install-conda.sh \
-    && /tmp/install-conda.sh -b -p $HOME/.miniconda \
-    && echo 'export PATH="$HOME/.miniconda/bin:$PATH"' >> $HOME/.localrc \
-    && rm -f /tmp/install-conda.sh \
-    && export PATH="$HOME/.miniconda/bin:$PATH" \
-    && conda install -y python=3.5 \
-    && pip install ipython --user
-
 # (ppa:neovim-ppa/stable, 502 Bad GateWay), checked
 # make sure you have set http_proxy and https_proxy correctly if you need to
 # or you will get `ERROR: '~neovim-ppa' user or team does not exist`.
@@ -75,9 +62,6 @@ sudo apt-get install -y software-properties-common \
     && pip install neovim --user
 
 # (Internet) Tmux config, checked
-# To make clipboard avaiable,
-#   use iTerm2 with `Applications in terminal may access clipboard` enabled
-#   Preferences -> General -> Selection
 git clone https://github.com/hughplay/tmux-config.git /tmp/tmux-config \
     && zsh /tmp/tmux-config/install.sh \
     && rm -rf /tmp/tmux-config
@@ -92,15 +76,40 @@ curl https://raw.githubusercontent.com/hughplay/spf13-vim/3.0/bootstrap.sh -L -o
 # ====================
 
 # > set timezone
-# ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+: <<'comment'
+ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+comment
 
 # > Vim to Nvim
-# mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-# ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-# ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+: <<'comment'
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+comment
 
 # > Install powerline fonts (For local use, not needed on server)
-# git clone https://github.com/hughplay/fonts.git /tmp/fonts --depth=1 \
-#     && sh /tmp/install.sh \
-#     && cd \
-#     && rm -rf /tmp/fonts
+: <<'comment'
+git clone https://github.com/hughplay/fonts.git /tmp/fonts --depth=1 \
+    && sh /tmp/fonts/install.sh \
+    && cd \
+    && rm -rf /tmp/fonts
+comment
+
+# > (Internet) Install Miniconda: python 3.5, checked
+: <<'comment'
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/install-conda.sh \
+    && chmod +x /tmp/install-conda.sh \
+    && /tmp/install-conda.sh -b -p $HOME/.miniconda \
+    && echo 'export PATH="$HOME/.miniconda/bin:$PATH"' >> $HOME/.localrc \
+    && rm -f /tmp/install-conda.sh \
+    && export PATH="$HOME/.miniconda/bin:$PATH" \
+    && conda install -y python=3.5 \
+    && pip install ipython --user
+comment
+
+# > Conda mirror
+: <<'comment'
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+comment
