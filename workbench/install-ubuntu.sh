@@ -29,10 +29,10 @@ sudo apt-get update && sudo apt-get install -y \
 
 # (Internet) Install tmux, checked
 git clone https://github.com/tmux/tmux.git /tmp/tmux \
-	&& cd /tmp/tmux \
+    && cd /tmp/tmux \
     && git checkout tags/2.7 \
-	&& sh autogen.sh \
-	&& ./configure && make \
+    && sh autogen.sh \
+    && ./configure && make \
     && sudo mv tmux /usr/bin/tmux \
     && cd \
     && rm -rf /tmp/tmux
