@@ -1,8 +1,6 @@
 #!/bin/bash
 # Tested on Ubuntu 16.04
 
-echo "Make sure the Internet is avaiable!"
-
 # set locale, checked
 export LC_ALL="en_US.UTF-8"
 sudo locale-gen "en_US.UTF-8"
