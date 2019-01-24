@@ -16,4 +16,10 @@ function count()
     echo $n
 }
 
+function hughplay()
+{
+    git config user.email silverhugh.77@gmail.com
+    git config user.name Mr.Blue
+}
+
 export PATH=$HOME/.local/bin:$PATH
