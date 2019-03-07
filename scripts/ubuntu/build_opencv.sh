@@ -1,4 +1,5 @@
 # You should modify the variable below if need
+# https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html
 VERSION='3.4.5'
 
 sudo apt-get install -y \
@@ -23,6 +24,8 @@ mkdir build && cd build
 mkdir -p ~/.local/bin ~/.local/include ~/.local/lib ~/.local/share && \
 cmake \
     -D CMAKE_BUILD_TYPE=Release \
-    -D CMAKE_INSTALL_PREFIX=~/.local .. && \
+    -D CMAKE_INSTALL_PREFIX=~/.local \
+    -D PYTHON2_EXECUTABLE=$(which python2) \
+    -D PYTHON3_EXECUTABLE=$(which python3) .. && \
 make -j $(nproc) && \
-sudo make install
+make install
