@@ -93,7 +93,7 @@ git clone https://github.com/hughplay/fonts.git /tmp/fonts --depth=1 \
     && rm -rf /tmp/fonts
 comment
 
-# > (Internet) Install Miniconda: python 3.5, checked
+# > (Internet) Install Miniconda: python 3.6, checked
 : <<'comment'
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/install-conda.sh \
     && chmod +x /tmp/install-conda.sh \
@@ -101,15 +101,11 @@ wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-L
     && echo 'export PATH="$HOME/.miniconda/bin:$PATH"' >> $HOME/.localrc \
     && rm -f /tmp/install-conda.sh \
     && export PATH="$HOME/.miniconda/bin:$PATH" \
-    && conda install -y python=3.5 \
+    && conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ \
+    && conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ \
+    && conda config --set show_channel_urls yes \
+    && conda install -y python=3.6 \
     && pip install ipython --user
-comment
-
-# > Conda mirror
-: <<'comment'
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-conda config --set show_channel_urls yes
 comment
 
 # > Node & yarn
