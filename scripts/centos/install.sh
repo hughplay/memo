@@ -44,6 +44,8 @@ wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/insta
     && sed -i.bak '/ZSH_THEME/s/\".*\"/\"honukai\"/' ~/.zshrc
 
 # htop
+# Make sure <conda_home>/lib is in your LD_LIBRARY_PATH
+# eg: export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.miniconda/lib"
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ \
     && conda install -y -c conda-forge ncurses \
     && git clone https://github.com/hishamhm/htop.git /tmp/htop \
