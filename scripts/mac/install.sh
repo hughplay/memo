@@ -10,3 +10,6 @@ brew update
 # Replace `brew update` mirror with TUNA
 echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' >> ~/.zshrc
 source ~/.zshrc
+
+# Install OpenCV
+# https://www.pyimagesearch.com/2018/08/17/install-opencv-4-on-macos/
