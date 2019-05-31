@@ -13,3 +13,25 @@ source ~/.zshrc
 
 # Install OpenCV
 # https://www.pyimagesearch.com/2018/08/17/install-opencv-4-on-macos/
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.0.0.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip
+unzip opencv.zip
+unzip opencv_contrib.zip
+cd opencv-4.0.0
+mkdir build && cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D OPENCV_EXTRA_MODULES_PATH=~/Documents/code/opensource/opencv/opencv_contrib-4.0.0/modules \
+    -D BUILD_opencv_python2=OFF \
+    -D BUILD_opencv_python3=ON \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D INSTALL_C_EXAMPLES=OFF \
+    -D BUILD_EXAMPLES=ON ..
+#    -D OPENCV_ENABLE_NONFREE=ON \
+# Update 2018-11-30: I added a CMake compile flag to enable nonfree algorithms ( OPENCV_ENABLE_NONFREE=ON ).
+# This is required for OpenCV 4 if you want access to patented algorithms for educational purposes.
+# How to find out where the Python include directory is?
+from sysconfig import get_paths
+from pprint import pprint
+info = get_paths()  # a dictionary of key-paths
+pprint(info)
