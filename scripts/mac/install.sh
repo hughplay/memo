@@ -21,12 +21,15 @@ cd opencv-4.0.0
 mkdir build && cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
-    -D OPENCV_EXTRA_MODULES_PATH=~/Documents/code/opensource/opencv/opencv_contrib-4.0.0/modules \
     -D BUILD_opencv_python2=OFF \
     -D BUILD_opencv_python3=ON \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D INSTALL_C_EXAMPLES=OFF \
+    -D PYTHON_EXECUTABLE=`which python` \
+    -D BUILD_opencv_text=OFF \
     -D BUILD_EXAMPLES=ON ..
+sudo ln -nfs /usr/local/python/cv2/python-3.6/cv2.cpython-36m-darwin.so /usr/local/lib/python3.6/site-packages/cv2.so
+
 #    -D OPENCV_ENABLE_NONFREE=ON \
 # Update 2018-11-30: I added a CMake compile flag to enable nonfree algorithms ( OPENCV_ENABLE_NONFREE=ON ).
 # This is required for OpenCV 4 if you want access to patented algorithms for educational purposes.
