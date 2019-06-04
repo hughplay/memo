@@ -38,3 +38,6 @@ from sysconfig import get_paths
 from pprint import pprint
 info = get_paths()  # a dictionary of key-paths
 pprint(info)
+
+# Better install opencv with Anaconda
+conda install -c conda-forge opencv=3.4.4
