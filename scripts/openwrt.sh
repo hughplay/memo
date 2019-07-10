@@ -3,7 +3,7 @@
 # Foreign DNS: https://www.opennic.org/
 # 114    - 114.114.114.114
 # AliDNS - 223.5.5.5
-# Baidu  - 180.76.76.76
+# Baidu  - 180.76.76.76 √
 # Tecent - 119.29.29.29
 
 # TUNA openwrt
