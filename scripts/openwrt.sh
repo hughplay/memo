@@ -3,8 +3,8 @@
 # Foreign DNS: https://www.opennic.org/
 # 114    - 114.114.114.114
 # AliDNS - 223.5.5.5
-# Baidu  - 180.76.76.76 √
-# Tecent - 119.29.29.29
+# Baidu  - 180.76.76.76
+# Tecent - 119.29.29.29 √
 
 # TUNA openwrt
 sed -i 's/downloads.openwrt.org/mirrors.tuna.tsinghua.edu.cn\/lede/g' /etc/opkg/distfeeds.conf
