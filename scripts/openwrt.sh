@@ -1,3 +1,11 @@
+# Public DNS
+# Local DNS: http://tools.cloudxns.net/Index/Diag
+# Foreign DNS: https://www.opennic.org/
+# 114    - 114.114.114.114
+# AliDNS - 223.5.5.5
+# Baidu  - 180.76.76.76
+# Tecent - 119.29.29.29
+
 # TUNA openwrt
 sed -i 's/downloads.openwrt.org/mirrors.tuna.tsinghua.edu.cn\/lede/g' /etc/opkg/distfeeds.conf
 opkg update
@@ -6,6 +14,10 @@ opkg update
 opkg install kmod-ipt-nat6
 ip6tables -t nat -I POSTROUTING -s `uci get network.globals.ula_prefix` -j MASQUERADE
 route -A inet6 add 2000::/3 `route -A inet6 | grep ::/0 | awk 'NR==1{print "gw "$2" dev "$7}'`
+# LAN -> DHCP Server -> IPV6 Setting
+# disable `DHCPv6-Service`
+# check `Always announce default router`
+# Done
 
 # Shadowsocks - https://alalin.me/archives/805
 crontab -e
