@@ -11,3 +11,6 @@
 
 # Install plugin
 # https://meta.discourse.org/t/install-plugins-in-discourse/19157
+# - git clone https://github.com/discourse/discourse-math.git     
+# - git clone https://github.com/discourse/discourse-solved.git   
+# - git clone https://github.com/discourse/discourse-checklist.git
