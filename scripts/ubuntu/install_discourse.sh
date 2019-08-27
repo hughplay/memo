@@ -14,3 +14,6 @@
 # - git clone https://github.com/discourse/discourse-math.git     
 # - git clone https://github.com/discourse/discourse-solved.git   
 # - git clone https://github.com/discourse/discourse-checklist.git
+
+crontab -e
+0 0,12 * * * /var/discourse/shared/standalone/scripts/update_score.py
