@@ -3,8 +3,16 @@
 # Domain name
 # namecheap: education.github.com/pack
 
-# change timezone to UTC
+# Change timezone to UTC
 sudo timedatectl set-timezone UTC
+
+# Git - /etc/ssh/ssh_config
+GSSAPIAuthentication no
+
+# Docker
+# http://mirrors.ustc.edu.cn/help/docker-ce.html
+# download.docker.com -> mirrors.ustc.edu.cn/docker-ce
+# mirror: http://mirrors.ustc.edu.cn/help/dockerhub.html#id3
 
 # Email Server
 # Mailjet: https://www.mailjet.com/
