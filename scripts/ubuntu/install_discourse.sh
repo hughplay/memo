@@ -10,6 +10,7 @@ sudo timedatectl set-timezone UTC
 GSSAPIAuthentication no
 
 # Docker
+# Best in aliyun: https://cr.console.aliyun.com/cn-beijing/instances/mirrors
 # http://mirrors.ustc.edu.cn/help/docker-ce.html
 # download.docker.com -> mirrors.ustc.edu.cn/docker-ce
 # mirror: http://mirrors.ustc.edu.cn/help/dockerhub.html#id3
