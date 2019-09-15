@@ -33,3 +33,8 @@ rake admin:create
 
 crontab -e
 0 0,12 * * * /var/discourse/shared/standalone/scripts/update_score.py
+
+## disable read-only mode
+./launcher enter app
+rails c
+Discourse.disable_readonly_mode(Discourse::USER_READONLY_MODE_KEY)
