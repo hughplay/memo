@@ -5,6 +5,7 @@
 
 # Change timezone to UTC
 sudo timedatectl set-timezone UTC
+sudo service cron restart
 
 # Git - /etc/ssh/ssh_config
 GSSAPIAuthentication no
