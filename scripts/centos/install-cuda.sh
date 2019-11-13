@@ -1,3 +1,5 @@
+# CUDA & NVIDIA Driver: https://docs.nvidia.com/deploy/cuda-compatibility/index.html
+
 sh ./cuda_10.0.130_410.48_linux.run --extract <some_dir>
 cd <some_dir>
 ./cuda-linux.10.0.130-24817639.run o-prefix=<install_location>
