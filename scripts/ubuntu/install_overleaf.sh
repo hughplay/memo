@@ -14,3 +14,8 @@ docker exec sharelatex tlmgr install scheme-full --repository https://mirror.bjt
 
 # Second time
 docker-compose up --no-recreate
+
+# Remove recaptcha
+docker exec -it sharelatex bash
+vim /var/www/sharelatex/web/app/views/layout.pug
+# search recaptcha (93 ~ 104), comment the code block
