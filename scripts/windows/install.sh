@@ -10,3 +10,4 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 printf "\x1b[${bg};2;${red};${green};${blue}m\n"
 # Install Powerline font, e.g. Monaco for Powerline: https://github.com/hughplay/fonts
 # Change the font-family in Hyper's config file.
+# Now use the script for Ubuntu instead: https://github.com/hughplay/env/blob/master/scripts/ubuntu/install.sh
