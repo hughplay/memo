@@ -1,3 +1,5 @@
+# == Best Terminal in Windows ==
+
 # Install hyper.js as Terminal (Best choice!): https://hyper.is/
 # Install drcula theme with config file: https://draculatheme.com/hyper
 # If you don't have windows store, install it with: https://github.com/kkkgo/LTSC-Add-MicrosoftStore
