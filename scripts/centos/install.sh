@@ -71,5 +71,5 @@ comment
 
 # Add $HOME/.local/bin to your $PATH
 echo PATH=$HOME/.local/bin:'$PATH' >> ~/.localrc
-echo "source ~/.localrc" >> ~/.bashrc
-echo "source ~/.localrc" >> ~/.zshrc
+sed -i.old '1s;^;source ~/.localrc\n;' ~/.bashrc
+sed -i.old '1s;^;source ~/.localrc\n;' ~/.zshrc
