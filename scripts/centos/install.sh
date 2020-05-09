@@ -27,9 +27,12 @@ git clone https://github.com/hughplay/tmux-config.git /tmp/tmux-config \
 # make CMAKE_EXTRA_FLAGS=-DCMAKE_INSTALL_PREFIX=$HOME/.local
 
 # Install zsh
+sudo yum install -y autoconf
+
 wget https://github.com/zsh-users/zsh/archive/zsh-5.6.2.tar.gz -O /tmp/zsh-5.6.2.tar.gz \
     && tar zxvf /tmp/zsh-5.6.2.tar.gz \
     && cd /tmp/zsh-zsh-5.6.2/ \
+    && ./Util/preconfig \
     && ./configure --prefix=$HOME/.local \
     && make \
     && make install \
