@@ -8,7 +8,7 @@ bash <(curl -s https://raw.githubusercontent.com/hughplay/env/master/scripts/cen
 # Install tmux-config
 git clone https://github.com/hughplay/tmux-config.git /tmp/tmux-config \
     && bash /tmp/tmux-config/install.sh \
-    && rm -r f /tmp/tmux-config
+    && rm -rf /tmp/tmux-config
 
 # Install neovim
 # git clone ...
@@ -17,7 +17,7 @@ git clone https://github.com/hughplay/tmux-config.git /tmp/tmux-config \
 # Install zsh
 
 wget https://github.com/zsh-users/zsh/archive/zsh-5.6.2.tar.gz -O /tmp/zsh-5.6.2.tar.gz \
-    && tar zxvf /tmp/zsh-5.6.2.tar.gz \
+    && tar zxvf /tmp/zsh-5.6.2.tar.gz -C /tmp \
     && cd /tmp/zsh-zsh-5.6.2/ \
     && ./Util/preconfig \
     && ./configure --prefix=$HOME/.local \
@@ -26,9 +26,7 @@ wget https://github.com/zsh-users/zsh/archive/zsh-5.6.2.tar.gz -O /tmp/zsh-5.6.2
     && cd -
 
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh \
-    && sed -i '/env zsh/d' /tmp/install-oh-my-zsh.sh \
-    && sed -i 's/chsh -s/sudo chsh -s/g' /tmp/install-oh-my-zsh.sh \
-    && sh /tmp/install-oh-my-zsh.sh \
+    && sh /tmp/install-oh-my-zsh.sh --unattended \
     && rm -f /tmp/install-oh-my-zsh.sh \
     && wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme -O ~/.oh-my-zsh/themes/honukai.zsh-theme \
     && sed -i.bak '/ZSH_THEME/s/\".*\"/\"honukai\"/' ~/.zshrc
@@ -72,5 +70,6 @@ comment
 # wget https://raw.githubusercontent.com/hughplay/lightvim/master/install.sh -O - | sh
 
 # Add $HOME/.local/bin to your $PATH
-# echo PATH=$HOME/.local/bin:'$PATH' >> ~/.bashrc
-echo PATH=$HOME/.local/bin:'$PATH' >> ~/.zshrc
+echo PATH=$HOME/.local/bin:'$PATH' >> ~/.localrc
+echo "source ~/.localrc" >> ~/.bashrc
+echo "source ~/.localrc" >> ~/.zshrc
