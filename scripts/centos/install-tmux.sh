@@ -17,7 +17,7 @@ cd /tmp/tmux
 echo "Downloading..."
 wget -O tmux-${TMUX_VERSION}.tar.gz https://github.com/tmux/tmux/archive/${TMUX_VERSION}.tar.gz
 wget https://github.com/downloads/libevent/libevent/libevent-2.0.19-stable.tar.gz
-wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz
+wget https://mirrors.tuna.tsinghua.edu.cn/gnu/ncurses/ncurses-5.9.tar.gz
 
 # extract files, configure, and compile
 
