@@ -7,6 +7,8 @@
 # exit on error
 set -e
 
+START=`pwd`
+
 TMUX_VERSION=2.8
 
 # create our directories
@@ -57,5 +59,6 @@ cd ..
 
 # cleanup
 rm -rf /tmp/tmux
+cd $START
 
 echo "$HOME/.local/bin/tmux is now available. You can optionally add $HOME/.local/bin to your PATH."
