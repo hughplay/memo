@@ -8,7 +8,6 @@ wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-L
     && conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ \
     && conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ \
     && conda config --set show_channel_urls yes \
-    && conda install -y python=3.6 \
     && pip install ipython --user
     
 # Install Node
@@ -16,6 +15,7 @@ conda install -y nodejs
 
 # Install tmux-2.8
 # Use https://github.com/hughplay/env/blob/master/scripts/centos/install-tmux.sh
+bash <(curl -s https://raw.githubusercontent.com/hughplay/env/master/scripts/centos/install-tmux.sh)
 
 # Install tmux-config
 git clone https://github.com/hughplay/tmux-config.git /tmp/tmux-config \
@@ -27,7 +27,7 @@ git clone https://github.com/hughplay/tmux-config.git /tmp/tmux-config \
 # make CMAKE_EXTRA_FLAGS=-DCMAKE_INSTALL_PREFIX=$HOME/.local
 
 # Install zsh
-sudo yum install -y autoconf
+sudo yum install -y autoconf ncurses-devel
 
 wget https://github.com/zsh-users/zsh/archive/zsh-5.6.2.tar.gz -O /tmp/zsh-5.6.2.tar.gz \
     && tar zxvf /tmp/zsh-5.6.2.tar.gz \
