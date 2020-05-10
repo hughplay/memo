@@ -25,10 +25,10 @@ wget https://github.com/zsh-users/zsh/archive/zsh-5.6.2.tar.gz -O /tmp/zsh-5.6.2
     && make install \
     && cd -
 
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh \
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh --no-check-certificate \
     && sh /tmp/install-oh-my-zsh.sh --unattended \
     && rm -f /tmp/install-oh-my-zsh.sh \
-    && wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme -O ~/.oh-my-zsh/themes/honukai.zsh-theme \
+    && wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme -O ~/.oh-my-zsh/themes/honukai.zsh-theme --no-check-certificate \
     && sed -i.bak '/ZSH_THEME/s/\".*\"/\"honukai\"/' ~/.zshrc
     
 # Change default shell to zsh (need sudo permission)
