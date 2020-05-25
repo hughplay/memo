@@ -1,6 +1,11 @@
 # Install gcc
 conda install -c psi4 gcc-5
 
+# Install Open MPI
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz
+tar zxvf openmpi-4.0.3.tar.gz && cd openmpi-4.0.3
+./configure --prefix ~/.local/ && make && make install
+
 # https://docs.nvidia.com/deeplearning/nccl/install-guide/index.html#softreq
 # Download NCCL2: https://developer.nvidia.com/nccl/getting_started (tgx)
 #  - Login
