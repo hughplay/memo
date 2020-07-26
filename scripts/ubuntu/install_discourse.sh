@@ -39,3 +39,10 @@ crontab -e
 ./launcher enter app
 rails c
 Discourse.disable_readonly_mode(Discourse::USER_READONLY_MODE_KEY)
+
+## change domain name
+# 1. edit containers/app.yml
+./launcher rebuild app
+./launcher enter app
+discourse remap <old domain> <new domain>
+rake posts:rebake
