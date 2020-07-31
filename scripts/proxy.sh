@@ -14,3 +14,17 @@ systemctl show docker --property Environment
 systemctl restart docker
 
 # ---
+# Configure Docker to use a proxy server
+vim ~/.docker/config.json
+
+{
+ "proxies":
+ {
+   "default":
+   {
+     "httpProxy": "http://127.0.0.1:3001",
+     "httpsProxy": "http://127.0.0.1:3001",
+     "noProxy": "*.test.example.com,.example2.com"
+   }
+ }
+}
