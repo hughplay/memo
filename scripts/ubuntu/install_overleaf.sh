@@ -13,7 +13,7 @@ docker exec sharelatex tlmgr install scheme-full --repository https://mirror.bjt
 # TUNA: https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 
 # Second time
-docker-compose up --no-recreate
+docker-compose up -d --no-recreate
 
 # Remove recaptcha
 docker exec -it sharelatex bash
