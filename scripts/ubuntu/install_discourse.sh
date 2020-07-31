@@ -46,3 +46,10 @@ Discourse.disable_readonly_mode(Discourse::USER_READONLY_MODE_KEY)
 ./launcher enter app
 discourse remap <old domain> <new domain>
 rake posts:rebake
+
+## Restore backup
+# https://meta.discourse.org/t/restore-a-backup-from-command-line/108034
+./launcher enter app
+discourse enable_restore
+discourse restore <name>.tar.gz
+
