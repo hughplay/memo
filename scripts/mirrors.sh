@@ -38,3 +38,8 @@ deb-src http://mirrors.tuna.tsinghua.edu.cn/raspberry-pi-os/raspbian/ buster mai
 
 # `/etc/apt/sources.list.d/raspi.list`
 deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
+
+
+## yarn, npm
+npm install -g yrm
+npm install -g nrm
