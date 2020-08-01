@@ -27,6 +27,9 @@ custom_channels:
   
 ## ubuntu
 # https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+
+## centos
+# https://mirrors.tuna.tsinghua.edu.cn/help/centos/
   
 ## raspberry pi
 # `/etc/apt/sources.list`
