@@ -41,5 +41,5 @@ deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
 
 
 ## yarn, npm
-npm install -g yrm
-npm install -g nrm
+# export PATH=$HOME/.yarn/bin/:$PATH
+yarn global add yrm
