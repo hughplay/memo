@@ -53,3 +53,10 @@ rake posts:rebake
 discourse enable_restore
 discourse restore <name>.tar.gz
 
+## Enable hostname in local network
+# https://www.anastis.gr/setting-hostname-avahi-mdns/
+#hostnamectl set-hostname <new name>
+#yum install -y avahi
+# apt-get install avahi-daemon
+#systemctl enable avahi
+#systemctl start avahi
