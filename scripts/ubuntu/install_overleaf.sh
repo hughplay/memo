@@ -22,3 +22,16 @@ vim /var/www/sharelatex/web/app/views/layout.pug
 
 # Create User
 $ docker exec sharelatex /bin/bash -c "cd /var/www/sharelatex; grunt user:create-admin --email=joe@example.com"
+
+# Transfer data
+# The most important thing is the privilege
+cd ~ && \
+chown polkitd:root mongo_data && \
+cd mongo_data && \
+chown -R polkitd:input ./* && \
+cd .. && \
+chown root:root sharelatex_data && \
+cd sharelatex_data && \
+chown -R 33:tape ./* && \
+chown -R root:root bin && \
+cd ..
