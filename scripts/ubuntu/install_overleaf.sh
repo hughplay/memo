@@ -19,3 +19,6 @@ docker-compose up -d --no-recreate
 docker exec -it sharelatex bash
 vim /var/www/sharelatex/web/app/views/layout.pug
 # search recaptcha (93 ~ 104), comment the code block
+
+# Create User
+$ docker exec sharelatex /bin/bash -c "cd /var/www/sharelatex; grunt user:create-admin --email=joe@example.com"
