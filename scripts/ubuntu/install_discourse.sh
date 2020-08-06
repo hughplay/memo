@@ -1,4 +1,8 @@
 # https://github.com/discourse/discourse/blob/master/docs/INSTALL-cloud.md
+# https://meta.discourse.org/t/replace-rubygems-org-with-taobao-mirror-to-resolve-network-error-in-china/21988
+# in app.yml
+templates:
+  - "templates/web.china.yml"
 
 # Domain name
 # namecheap: education.github.com/pack
