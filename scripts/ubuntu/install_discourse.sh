@@ -41,6 +41,9 @@ GSSAPIAuthentication no
 # - git clone https://github.com/discourse/discourse-solved.git   
 # - git clone https://github.com/discourse/discourse-checklist.git
 
+# Install
+./launcher rebuild app
+
 # Create admin
 ./launcher enter app
 rake admin:create
