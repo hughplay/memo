@@ -5,11 +5,15 @@
 # in app.yml
 templates:
   - "templates/web.china.yml"
+## Github time out -> /etc/hosts
+# https://www.ipaddress.com/ip-lookup
+# github.com
+# assets-cdn.github.com
   
-# change install location
+# change install location: modify `volumes`
 # https://meta.discourse.org/t/change-discourse-install-storage-location/88256
 
-# Domain name
+# Domain name or `/etc/hosts`
 # namecheap: education.github.com/pack
 
 # Change timezone to UTC
