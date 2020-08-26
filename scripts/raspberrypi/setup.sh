@@ -5,7 +5,6 @@ touch /boot/ssh
 # https://howchoo.com/g/ndy1zte2yjn/how-to-set-up-wifi-on-your-raspberry-pi-without-ethernet
 # /boot/wpa_supplicant.conf
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
 country=CN
 
 network={
