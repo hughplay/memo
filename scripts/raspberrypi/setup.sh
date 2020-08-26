@@ -11,3 +11,6 @@ network={
 	ssid="<WIFI NAME>"
 	psk="<WIFI PASSWORD>"
 }
+# if encounter wifi error in raspi-config (maybe you need modify wpa_supplicant.conf first)
+sudo killall wpa_supplicant
+sudo wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
