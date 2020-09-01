@@ -1,5 +1,9 @@
 # Install gcc
 conda install -c psi4 gcc-5
+# Or build gcc
+# download gcc source code
+./contrib/download_prerequisites
+./configure --prefix ~/.local/ --disable-multilib && make && make install
 
 # Install Open MPI
 wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz
