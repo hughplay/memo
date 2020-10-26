@@ -10,3 +10,5 @@ nvidia-smi
 # Install Nvidia Drivers
 # https://www.programmersought.com/article/31361169634/
 rm -f /tmp/.X0.lock
+# kernel-header, kernel-devel version must match `uname -r` (search & download rpm packages manually)
+rpm -i xxx.rpm
