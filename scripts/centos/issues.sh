@@ -6,3 +6,7 @@ sudo lsmod | grep nvidia
 sudo rmmod nvidia_modeset
 ......
 nvidia-smi
+
+# Install Nvidia Drivers
+# https://www.programmersought.com/article/31361169634/
+rm -f /tmp/.X0.lock
