@@ -50,10 +50,11 @@ wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-L
     && pip install ipython --user
 
 # Install Vim
-git clone https://github.com/vim/vim.git
-cd vim
-export PATH=$HOME/.miniconda3/bin:$PATH && ./configure --prefix $HOME/.local --enable-python3interp yes
-make && make install
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout stable
+make -j 20
+make CMAKE_INSTALL_PREFIX=$HOME/.local install
 # lightvim
 wget https://raw.githubusercontent.com/hughplay/lightvim/master/install.sh -O - | sh
     
