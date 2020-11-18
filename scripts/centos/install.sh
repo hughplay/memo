@@ -48,6 +48,12 @@ wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-L
     && conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ \
     && conda config --set show_channel_urls yes \
     && pip install ipython --user
+
+# Install Vim
+git clone https://github.com/vim/vim.git
+cd vim
+export PATH=$HOME/.miniconda3/bin:$PATH && ./configure --prefix $HOME/.local --enable-python3interp yes
+make && make install
     
 # Install Node
 # conda install -y nodejs
