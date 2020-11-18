@@ -54,6 +54,8 @@ git clone https://github.com/vim/vim.git
 cd vim
 export PATH=$HOME/.miniconda3/bin:$PATH && ./configure --prefix $HOME/.local --enable-python3interp yes
 make && make install
+# lightvim
+wget https://raw.githubusercontent.com/hughplay/lightvim/master/install.sh -O - | sh
     
 # Install Node
 # conda install -y nodejs
