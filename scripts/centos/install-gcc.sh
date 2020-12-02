@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-VERSION=${version:-6.5.0}
-PREFIX=${prefix:-/usr/local/}
-JOB=${job:-`nproc`}
+VERSION=6.5.0
+PREFIX=/usr/local/
+JOB=`nproc`
+MIRROR=https://mirrors.tuna.tsinghua.edu.cn/gnu/gcc
 
 START=`pwd`
 
@@ -19,7 +20,7 @@ done
 
 echo "Downloading gcc-${VERSION}...""
 cd /tmp
-wget https://mirrors.ustc.edu.cn/gnu/gcc/gcc-${VERSION}/gcc-${VERSION}.tar.gz -O gcc-${VERSION}.tar.gz
+wget ${MIRROR}/gcc-${VERSION}/gcc-${VERSION}.tar.gz -O gcc-${VERSION}.tar.gz
 echo 'Decompressing into gcc-${VERSION}...'
 tar xzf gcc-${VERSION}.tar.gz
 cd gcc-${VERSION}
