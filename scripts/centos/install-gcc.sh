@@ -18,7 +18,7 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-echo "Downloading gcc-${VERSION}...""
+echo "Downloading gcc-${VERSION}..."
 cd /tmp
 wget ${MIRROR}/gcc-${VERSION}/gcc-${VERSION}.tar.gz -O gcc-${VERSION}.tar.gz
 echo 'Decompressing into gcc-${VERSION}...'
