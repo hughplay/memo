@@ -112,3 +112,29 @@ conda install -y nodejs
 npm install -g yarn yrm
 ## Change npm mirror (`yrm test`)
 yrm use taobao
+
+
+# SSH Tips
+
+## SSH without inputing password
+ssh-copy-id root@<target_ip>
+
+## SSH through hosts
+## PC --> server A (with public IP) --> server B (internal access only)
+## !!!In your PC!!
+vim ~/.ssh/config
+## Add the following content into your `~/.ssh/config`
+Host server_a
+    HostName xxx.xxx.100.232
+    User root
+    Port 22
+Host server_b
+    HostName 172.31.xxx.xxx
+    Port 22
+    ProxyCommand ssh server_a nc %h %p
+## Now you can directly ssh to server_b from your PC
+ssh root@server_b
+## or copy file from your PC to server_b
+rsync -avP <file/directory> root@server_b:/<somewhere>
+## If you encounter problems in Windows, the link below may be useful:
+## https://serverfault.com/questions/956613/windows-10-ssh-proxycommand-posix-spawn-no-such-file-or-directory
