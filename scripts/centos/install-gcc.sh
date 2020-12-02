@@ -21,7 +21,7 @@ done
 echo "Downloading gcc-${VERSION}..."
 cd /tmp
 wget ${MIRROR}/gcc-${VERSION}/gcc-${VERSION}.tar.gz -O gcc-${VERSION}.tar.gz
-echo 'Decompressing into gcc-${VERSION}...'
+echo "Decompressing into gcc-${VERSION}..."
 tar xzf gcc-${VERSION}.tar.gz
 cd gcc-${VERSION}
 
