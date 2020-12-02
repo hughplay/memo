@@ -36,4 +36,4 @@ make -j $JOB
 make install
 
 cd $START
-echo '$PREFIX/bin/gcc is installed.'
+echo "$PREFIX/bin/gcc is installed."
