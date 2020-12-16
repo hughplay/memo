@@ -48,3 +48,8 @@ BUCKET=$(curl -H "Accept: application/json" -H "Authorization: Bearer $ZENODO_TO
 
 
 curl --progress-bar -o /dev/null --upload-file $FILEPATH $BUCKET/$FILENAME?access_token=$ZENODO_TOKEN
+
+
+# PDF pages to a thumbnail picture using ImageMagick
+convert "xxx.pdf[0-7]" -thumbnail x156 thumb.png
+montage -mode concatenate -quality 80 -tile x1 "thumb-*.png" xxx.png
