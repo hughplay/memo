@@ -1,0 +1,108 @@
+%% LaTeX写作新手须知: https://weibo.com/ttarticle/p/show?id=2309403955741387052924
+\usepackage[american]{babel}
+\usepackage{microtype}
+\graphicspath{{figure/}}
+
+% Use `~' to avoid line break between two words (e.g. citation)
+DFNet~\cite{hong2019dfnet}
+Figure~\ref{fig:fusion}
+
+% to normally display `\mathbb{}`, you need
+\usepackage{amsfonts}
+
+% balance reference
+\usepackage{balance}
+% anywhere in document
+\balance
+
+% build pdf
+latexmk -outdir build -pdf main.tex
+
+% pdf diff: https://github.com/vslavik/diff-pdf
+
+%% == Snipptes == %%
+
+%tabularx
+\begin{table}[t]
+    \vskip 0.2in
+    \caption{A Title}
+    \label{tab:tabularx}
+    \begin{center}
+        \begin{small}
+            \begin{tabularx}{\linewidth}{lX}
+                \toprule
+                A & B\\
+                \midrule
+                one & words, words, words, words, words, words, words, words, words,  \\
+                two & words, words, words, words, words, words, words, words, words, words, words, words, words, \\
+                \bottomrule
+            \end{tabularx}
+        \end{small}
+    \end{center}
+    \vskip -0.2in
+\end{table}
+
+%% ======= ICML Template =======
+% ICML Figure
+\begin{figure}[ht]
+    \vskip 0.2in
+    \begin{center}
+        \centerline{\includegraphics[width=\columnwidth]{icml_numpapers}}
+        \caption{Historical locations and number of accepted papers for International
+        Machine Learning Conferences (ICML 1993 -- ICML 2008) and International
+        Workshops on Machine Learning (ML 1988 -- ML 1992). At the time this figure was
+        produced, the number of accepted papers for ICML 2008 was unknown and instead
+        estimated.}
+        \label{icml-historical}
+    \end{center}
+    \vskip -0.2in
+\end{figure}
+
+% ICML Table
+\begin{table}[t]
+    \caption{Classification accuracies for naive Bayes and flexible
+    Bayes on various data sets.}
+    \label{sample-table}
+    \vskip 0.15in
+    \begin{center}
+        \begin{small}
+            \begin{sc}
+            \begin{tabular}{lcccr}
+                \toprule
+                Data set & Naive & Flexible & Better? \\
+                \midrule
+                Breast    & 95.9$\pm$ 0.2& 96.7$\pm$ 0.2& $\surd$ \\
+                Cleveland & 83.3$\pm$ 0.6& 80.0$\pm$ 0.6& $\times$\\
+                Glass2    & 61.9$\pm$ 1.4& 83.8$\pm$ 0.7& $\surd$ \\
+                Credit    & 74.8$\pm$ 0.5& 78.3$\pm$ 0.6&         \\
+                Horse     & 73.3$\pm$ 0.9& 69.7$\pm$ 1.0& $\times$\\
+                Meta      & 67.1$\pm$ 0.6& 76.5$\pm$ 0.5& $\surd$ \\
+                Pima      & 75.1$\pm$ 0.6& 73.9$\pm$ 0.5&         \\
+                Vehicle   & 44.9$\pm$ 0.6& 61.5$\pm$ 0.4& $\surd$ \\
+                \bottomrule
+            \end{tabular}
+            \end{sc}
+        \end{small}
+    \end{center}
+    \vskip -0.1in
+\end{table}
+
+% ICML Algorithm
+\begin{algorithm}[tb]
+    \caption{Bubble Sort}
+    \label{alg:example}
+    \begin{algorithmic}
+       \STATE {\bfseries Input:} data $x_i$, size $m$
+       \REPEAT
+       \STATE Initialize $noChange = true$.
+       \FOR{$i=1$ {\bfseries to} $m-1$}
+       \IF{$x_i > x_{i+1}$}
+       \STATE Swap $x_i$ and $x_{i+1}$
+       \STATE $noChange = false$
+       \ENDIF
+       \ENDFOR
+       \UNTIL{$noChange$ is $true$}
+    \end{algorithmic}
+\end{algorithm}
+%% ======= ICML Template =======
+

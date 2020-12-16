@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( opencv_lab )
+find_package( OpenCV REQUIRED )
+add_executable( mat_access mat_access.cpp )
+target_link_libraries( mat_access ${OpenCV_LIBS} )
+set(CMAKE_CXX_FLAGS "-O3 -std=c++11 -Wall -ffast-math -msse2")

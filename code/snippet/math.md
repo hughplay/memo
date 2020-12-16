@@ -1,0 +1,4 @@
+- bayes
+  - https://www.matongxue.com/madocs/279.html
+  - https://www.matongxue.com/madocs/301/
+- d-separation: https://my.oschina.net/dillan/blog/134011
