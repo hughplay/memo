@@ -88,6 +88,11 @@ gpustat -p -i 0.3
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
+
+# Github acceleration
+## https://github.com/521xueweihan/GitHub520
+
+
 # Other development tools (optional)
 
 ## Install tmux>2.4
