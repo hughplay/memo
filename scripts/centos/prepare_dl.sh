@@ -74,6 +74,21 @@ htop
 pip install gpustat
 gpustat -p -i 0.3
 
+# Docker Hub Mirror
+# https://gist.github.com/y0ngb1n/7e8f16af3242c7815e7ca2f0833d3ea6
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+    "registry-mirrors": [
+        "https://1nj0zren.mirror.aliyuncs.com",
+        "https://docker.mirrors.ustc.edu.cn",
+        "http://f1361db2.m.daocloud.io",
+        "https://dockerhub.azk8s.cn"
+    ]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 
 # Other development tools (optional)
 
