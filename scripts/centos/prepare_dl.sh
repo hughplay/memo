@@ -91,6 +91,8 @@ sudo systemctl restart docker
 
 # Github acceleration
 ## https://github.com/521xueweihan/GitHub520
+## https://github.com.cnpmjs.org
+## https://hub.fastgit.org
 
 
 # Other development tools (optional)
