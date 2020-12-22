@@ -40,7 +40,6 @@ def main(args):
                 result = True
         else:
             raise NotImplementedError("Unknown type: {}.".format(_type))
-        print(_type, value, result)
 
         if result ^ args.reverse:
             execute(args.command)
