@@ -41,3 +41,7 @@ curl --progress-bar -o /dev/null --upload-file $FILEPATH $BUCKET/$FILENAME?acces
 
 # tar - very fast (pigz: multiple cores)
 tar -cv --use-compress-program=pigz -f <dir>.tar.gz <dir>
+
+# split and join
+split -b 4G <xxx>.tar.gz "<xxx>.tar.gz.part-"
+cat <xxx>.tar.gz.part-* > <xxx>.tar.gz
