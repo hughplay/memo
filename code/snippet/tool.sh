@@ -14,13 +14,6 @@ done
 # bibtex2html
 bibtex2html -nofooter -nolinks -nokeys -o - -s apa -nodoc -q reference.bib
 
-# Merge pictures
-montage -geometry +2+4 *.png merge.jpg
-
-# Resize pictures
-mogrify -resize 50% *.png
-mogrify -resize 256x256 *.png
-
 # with full relative path
 ls -d folder/*.jpg
 
@@ -43,13 +36,8 @@ rsync --delete --ignore-existing -avP user@host:"/target/dir/*.tar.gz" ~/local/d
 DEPOSITION=$1
 FILEPATH=$2
 FILENAME=$(echo $FILEPATH | sed 's+.*/++g')
-
 BUCKET=$(curl -H "Accept: application/json" -H "Authorization: Bearer $ZENODO_TOKEN" "https://www.zenodo.org/api/deposit/depositions/$DEPOSITION" | jq --raw-output .links.bucket)
-
-
 curl --progress-bar -o /dev/null --upload-file $FILEPATH $BUCKET/$FILENAME?access_token=$ZENODO_TOKEN
 
-
-# PDF pages to a thumbnail picture using ImageMagick
-convert "xxx.pdf[0-7]" -thumbnail x156 thumb.png
-montage -mode concatenate -quality 80 -tile x1 "thumb-*.png" xxx.png
+# tar - very fast (pigz: multiple cores)
+tar -cv --use-compress-program=pigz -f <dir>.tar.gz <dir>
