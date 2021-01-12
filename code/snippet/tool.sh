@@ -40,7 +40,9 @@ BUCKET=$(curl -H "Accept: application/json" -H "Authorization: Bearer $ZENODO_TO
 curl --progress-bar -o /dev/null --upload-file $FILEPATH $BUCKET/$FILENAME?access_token=$ZENODO_TOKEN
 
 # tar - very fast (pigz: multiple cores)
-tar -cv --use-compress-program=pigz -f <dir>.tar.gz <dir>
+# -I = --use-compress-program
+tar -cv -I pigz -f <name>.tar.gz <dir>
+tar -xv -I pigz -f <name>.tar.gz
 
 # split and join
 split -b 4G <xxx>.tar.gz "<xxx>.tar.gz.part-"
