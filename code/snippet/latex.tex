@@ -20,6 +20,17 @@ latexmk -outdir build -pdf main.tex
 
 % pdf diff: https://github.com/vslavik/diff-pdf
 
+% latex color
+\usepackage{xcolor}
+
+% http://latexcolor.com/
+\definecolor{azure(colorwheel)}{rgb}{0.0, 0.5, 1.0}
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}\definecolor{forestgreen(web)}{rgb}{0.13, 0.55, 0.13}
+
+\newcommand{\ra}{\textbf{\color{azure(colorwheel)}{R1}}}
+\newcommand{\rb}{\textbf{\color{forestgreen(web)}{R2}}}
+\newcommand{\rc}{\textbf{\color{awesome}{R3}}}
+
 %% == Snipptes == %%
 
 %tabularx
