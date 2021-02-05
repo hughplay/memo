@@ -12,3 +12,7 @@ nvidia-smi
 rm -f /tmp/.X0.lock
 # kernel-header, kernel-devel version must match `uname -r` (search & download rpm packages manually)
 rpm -i xxx.rpm
+
+
+#  Error: missing or unsuitable terminal
+cp -r /usr/share/terminfo ~/.terminfo
