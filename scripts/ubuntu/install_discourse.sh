@@ -43,6 +43,7 @@ GSSAPIAuthentication no
 
 # Install
 ./launcher rebuild app
+./launcher rebuild app -e HTTP_PROXY="<proxy>" -e HTTPS_PROXY="<proxy>"
 
 # Create admin
 ./launcher enter app
