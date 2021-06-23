@@ -18,3 +18,25 @@ model.zero_grad()
 out_2 = g(y)
 out_2.backward()
 opt_2.step()
+
+# torch.einsum
+# https://obilaniu6266h16.wordpress.com/2016/02/04/einstein-summation-in-numpy/
+# https://optimized-einsum.readthedocs.io/en/stable/
+#  6: Elaborated Example. Matrix multiplication.
+#     C     =     A     *     B
+#  Ni x Nj  =  Ni x Nk  *  Nk x Nj
+#               |    ^-----^     |
+#               |     Match      |
+#               |                |
+#               -------- ---------
+#                       V
+#  Ni x Nj  <------- Ni x Nj
+C = np.empty((Ni,Nj))
+for i in xrange(Ni):
+      for j in xrange(Nj):
+             total = 0
+             
+             for k in xrange(Nk):
+                   total += A[i,k]*B[k,j]
+             
+             C[i,j] = total
