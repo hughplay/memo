@@ -118,7 +118,9 @@ wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/insta
     && sh /tmp/install-oh-my-zsh.sh --unattended \
     && rm -f /tmp/install-oh-my-zsh.sh \
     && wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme -O ~/.oh-my-zsh/themes/honukai.zsh-theme --no-check-certificate \
-    && sed -i.bak '/ZSH_THEME/s/\".*\"/\"honukai\"/' ~/.zshrc
+    && sed -i.bak '/ZSH_THEME/s/\".*\"/\"honukai\"/' ~/.zshrc\
+    && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions\
+    && sed -i.bak '/plugin/s/(.*)/(git zsh-autosuggestions)/' ~/.zshrc
 ## Change default shell to zsh
 command -v zsh | sudo tee -a /etc/shells \
     && sudo chsh -s "$(command -v zsh)" "${USER}"
