@@ -47,3 +47,11 @@ tar -xv -I pigz -f <name>.tar.gz
 # split and join
 split -b 4G <xxx>.tar.gz "<xxx>.tar.gz.part-"
 cat <xxx>.tar.gz.part-* > <xxx>.tar.gz
+
+# Download Google Drive
+# https://stackoverflow.com/a/43816312
+# 1. Go to the Google Drive webpage that has the download link
+# 2. Open your browser console and go to the "network" tab
+# 3. Click the download link
+# 4. Wait for it the file to start downloading, and find the corresponding request (should be the last one in the list), then you can cancel the download
+# 5. Right click on the request and click "Copy as cURL" (or similar)
