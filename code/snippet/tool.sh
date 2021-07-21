@@ -55,3 +55,7 @@ cat <xxx>.tar.gz.part-* > <xxx>.tar.gz
 # 3. Click the download link
 # 4. Wait for it the file to start downloading, and find the corresponding request (should be the last one in the list), then you can cancel the download
 # 5. Right click on the request and click "Copy as cURL" (or similar)
+
+# wandb - Recover deleted log from local files
+python -c "import wandb; print(wandb.util.generate_id())"
+wandb sync . --id xxxx
