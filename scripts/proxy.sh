@@ -28,3 +28,16 @@ vim ~/.docker/config.json
    }
  }
 }
+
+
+## Squid
+yum install -y squid
+cp /etc/squid/squid.conf.default /etc/squid/squid.conf
+vim /etc/squid/squild.conf
+#http_access deny CONNECT !SSL_ports
+systemctl enable squid
+systemctl start squid
+
+# ~/.bashrc
+alias nic='export http_proxy="http://xxx:3128" https_proxy="http://xxx:3128"'
+nic
