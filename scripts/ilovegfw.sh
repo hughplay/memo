@@ -19,6 +19,8 @@ chmod +x shadowsocksR.sh
 bash <(curl -s -L https://git.io/v2ray.sh)
 # New: https://www.v2ray.com/chapter_00/install.html
 bash <(curl -L -s https://install.direct/go.sh)
+firewall-cmd --zone=public --permanent --add-port=8001/tcp
+firewall-cmd --reload
 
 # client: https://www.v2ray.com/awesome/tools.html
 # Mac OS X: https://github.com/Cenmrev/V2RayX
