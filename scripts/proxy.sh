@@ -37,6 +37,8 @@ vim /etc/squid/squild.conf
 #http_access deny CONNECT !SSL_ports
 systemctl enable squid
 systemctl start squid
+firewall-cmd --zone=public --permanent --add-port=3128/tcp
+firewall-cmd --reload
 
 # ~/.bashrc
 alias nic='export http_proxy="http://xxx:3128" https_proxy="http://xxx:3128"'
