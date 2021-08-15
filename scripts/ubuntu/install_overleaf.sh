@@ -35,3 +35,11 @@ cd sharelatex_data && \
 chown -R 33:tape ./* && \
 chown -R root:root bin && \
 cd ..
+
+# Issue: when using ieee_fullname bibliographystyle, all citations are showing as question marks
+# Solution: reinstall packages (some packages may not installed correctly in the previous installation)
+tlmgr install --reinstall scheme-full --repository https://mirror.bjtu.edu.cn/ctan/systems/texlive/tlnet
+
+# Issue: LaTeX3 Error: Mismatched LaTeX support files detected.
+# Solution: https://tex.stackexchange.com/questions/576918/mismatched-latex-support-files-detected
+fmtutil-user --all
