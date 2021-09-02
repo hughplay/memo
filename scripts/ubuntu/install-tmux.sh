@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-VERSION=2.8
+VERSION=3.2a
 LIBEVENT_VERSION=2.1.12
 NCURSES_VERSION=6.2
 PREFIX=/usr/local/
