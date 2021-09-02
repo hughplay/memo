@@ -2,6 +2,8 @@
 set -e
 
 VERSION=2.8
+LIBEVENT_VERSION=2.1.12
+NCURSES_VERSION=6.2
 PREFIX=/usr/local/
 
 START=`pwd`
@@ -22,8 +24,8 @@ cd /tmp/tmux
 # download source files for tmux, libevent, and ncurses
 echo "Downloading..."
 wget -O tmux-${VERSION}.tar.gz https://github.com/tmux/tmux/releases/download/${VERSION}/tmux-${VERSION}.tar.gz
-wget -O libevent-2.0.19-stable.tar.gz https://github.com/downloads/libevent/libevent/libevent-2.0.19-stable.tar.gz
-wget -O ncurses-5.9.tar.gz https://mirrors.tuna.tsinghua.edu.cn/gnu/ncurses/ncurses-5.9.tar.gz --no-check-certificate
+wget -O libevent-stable.tar.gz https://github.com/libevent/libevent/releases/download/release-${LIBEVENT_VERSION}-stable/libevent-${LIBEVENT_VERSION}-stable.tar.gz
+wget -O ncurses-${NCURSES_VERSION}.tar.gz https://mirrors.tuna.tsinghua.edu.cn/gnu/ncurses/ncurses-${NCURSES_VERSION}.tar.gz --no-check-certificate
 
 # extract files, configure, and compile
 
@@ -31,8 +33,8 @@ wget -O ncurses-5.9.tar.gz https://mirrors.tuna.tsinghua.edu.cn/gnu/ncurses/ncur
 # libevent #
 ############
 echo "Processing libevent..."
-tar xvzf libevent-2.0.19-stable.tar.gz
-cd libevent-2.0.19-stable
+tar xvzf libevent-stable.tar.gz
+cd libevent-${LIBEVENT_VERSION}-stable
 ./configure --prefix=${PREFIX} --disable-shared
 make -j
 make install
@@ -42,8 +44,8 @@ cd ..
 # ncurses  #
 ############
 echo "Processing ncurses..."
-tar xvzf ncurses-5.9.tar.gz
-cd ncurses-5.9
+tar xvzf ncurses-${NCURSES_VERSION}.tar.gz
+cd ncurses-${NCURSES_VERSION}
 ./configure --prefix=${PREFIX}
 make -j
 make install
@@ -55,7 +57,6 @@ cd ..
 echo "Processing tmux..."
 tar xvzf tmux-${VERSION}.tar.gz
 cd tmux-${VERSION}
-./autogen.sh
 ./configure --prefix=${PREFIX} CFLAGS="-I${PREFIX}/include -I${PREFIX}/include/ncurses" LDFLAGS="-L${PREFIX}/lib -L${PREFIX}/include/ncurses -L${PREFIX}/include"
 CPPFLAGS="-I${PREFIX}/include -I${PREFIX}/include/ncurses" LDFLAGS="-static -L${PREFIX}/include -L${PREFIX}/include/ncurses -L${PREFIX}/lib"
 make -j
