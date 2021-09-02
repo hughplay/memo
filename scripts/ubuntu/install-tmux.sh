@@ -3,7 +3,6 @@ set -e
 
 VERSION=2.8
 PREFIX=/usr/local/
-JOB=`nproc`
 
 START=`pwd`
 
@@ -11,7 +10,6 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         -v|--version) VERSION="$2"; shift ;;
         -p|--prefix) PREFIX="$2"; shift ;;
-        -j|--job) JOB="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
