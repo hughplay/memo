@@ -43,3 +43,11 @@ tlmgr install --reinstall scheme-full --repository https://mirror.bjtu.edu.cn/ct
 # Issue: LaTeX3 Error: Mismatched LaTeX support files detected.
 # Solution: https://tex.stackexchange.com/questions/576918/mismatched-latex-support-files-detected
 fmtutil-user --all
+
+# Issue: ERROR: for sharelatex  Container "0771304d9348" is unhealthy. ERROR: Encountered errors while bringing up the project.
+# Observation: mongo is not up
+# Solution: set the mongo version as 4.4 to match weiredTiger version
+# Useful commands:
+docker run -it -v /home/sharelatex/mongo_data:/data/db mongo:4.4 bash
+mongod
+mongod --repair # not really used
