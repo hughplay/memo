@@ -1,13 +1,16 @@
 import argparse
 import sys
+import time
 import traceback
 from itertools import chain
 from pathlib import Path
 
 import jsonlines
 import ray
+from ray.util.queue import Queue
 
-from ray_tools import split_list, ProgressBar
+sys.path.append(".")
+from utils.ray_tools import ProgressBar
 
 
 N_GPU_PER_THREAD = 0
@@ -15,8 +18,7 @@ N_CPU_PER_THREAD = 2
 
 
 def read_jobs(args):
-    jobs = []
-    # read jobs
+    jobs = list(range(10))
     return jobs
 
 
@@ -26,11 +28,10 @@ def is_completed(job, args):
 
 
 @ray.remote(num_cpus=N_CPU_PER_THREAD, num_gpus=N_GPU_PER_THREAD)
-def process_jobs(i, jobs, args, actor):
-    print(f"Jobs on thread #{i}: {len(jobs)}")
-
+def process_jobs(jobs_queue, args, actor):
     results = []
-    for job in jobs:
+    while not jobs_queue.empty():
+        job = jobs_queue.get()
         try:
             result = execute_one_job(job, args, actor)
             if result is not None:
@@ -46,8 +47,9 @@ def execute_one_job(job, args, actor):
     if is_completed(job, args):
         pass
     else:
-        pass
-    return {}
+        res = job ** 2
+        time.sleep(1)
+    return {"job": job, "result": res}
 
 
 if __name__ == "__main__":
@@ -58,12 +60,12 @@ if __name__ == "__main__":
     parser.add_argument("-i", type=str, required=True, dest="input_dir")
     parser.add_argument("-o", type=str, required=True, dest="output_dir")
 
-    parser.add_argument("--split", type=int, default=1, help="number of splits")
+    parser.add_argument("--thread", type=int, default=1, help="number of threads")
     parser.add_argument(
-        "--cpu", type=int, default=1, help="number of cpu per split"
+        "--cpu", type=int, default=1, help="number of cpu per thread"
     )
     parser.add_argument(
-        "--gpu", type=float, default=0, help="number of gpu per split"
+        "--gpu", type=float, default=0, help="number of gpu per thread"
     )
 
     args = parser.parse_args()
@@ -76,27 +78,26 @@ if __name__ == "__main__":
 
         N_CPU_PER_THREAD = args.cpu
         N_GPU_PER_THREAD = args.gpu
-        n_split = min(len(jobs), args.split)
-        total_cpus = N_CPU_PER_THREAD * n_split
-        total_gpus = N_GPU_PER_THREAD * n_split
+        n_thread = min(len(jobs), args.thread)
+        total_cpus = N_CPU_PER_THREAD * n_thread
+        total_gpus = N_GPU_PER_THREAD * n_thread
         ray.init(num_cpus=total_cpus, num_gpus=total_gpus)
-        print(f"Number of splits: {n_split}.")
-        print(f"CPUs per split: {N_CPU_PER_THREAD}.")
+        print(f"Number of threads: {n_thread}.")
+        print(f"CPUs per thread: {N_CPU_PER_THREAD}.")
         print(f"Total CPUs: {total_cpus}.")
         if N_GPU_PER_THREAD > 0:
-            print(f"GPUs per split: {N_GPU_PER_THREAD}.")
+            print(f"GPUs per thread: {N_GPU_PER_THREAD}.")
             print(f"Total GPUs: {total_gpus}.")
         print(f"-----------------")
 
-        jobs_chunks = split_list(jobs, n_split)
-
-        pb = ProgressBar(len(jobs))
+        jobs_queue = Queue()
+        for job in jobs:
+            jobs_queue.put(job)
+        pb = ProgressBar(len(jobs_queue))
         actor = pb.actor
         job_list = []
-        for i in range(n_split):
-            job_list.append(
-                process_jobs.remote(i, jobs_chunks[i], args, actor)
-            )
+        for _ in range(n_thread):
+            job_list.append(process_jobs.remote(jobs_queue, args, actor))
 
         pb.print_until_done()
         job_results = list(chain(*ray.get(job_list)))
@@ -107,4 +108,3 @@ if __name__ == "__main__":
             writer.write_all(job_results)
     else:
         print(f"No job to run.")
-
