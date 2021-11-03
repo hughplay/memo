@@ -13,6 +13,7 @@
 # Commands:
 # - check NVIDIA Driver version
 nvidia-smi
+gpustat
 # - check pytorch & used cuda:
 python -c "import torch; print('---\nPyTorch version:', torch.__version__, '\nCurrent CUDA version used in PyTorch:', torch.version.cuda)"
 
