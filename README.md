@@ -24,3 +24,4 @@ Installation guide:
 - [gcc](https://github.com/hughplay/memo/blob/master/scripts/centos/install-gcc.sh)
 - [overleaf](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_overleaf.sh)
 - [discourse](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_discourse.sh)
+- [WebDAV](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install-webdav.sh)
