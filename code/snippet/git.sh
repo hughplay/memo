@@ -33,6 +33,11 @@ git update-index --no-assume-unchanged <file>
 
 # Overwrite local branch
 git fetch --all
+
+# Merge Branch
+git pull origin dev
+git status
+git diff HEAD xxx
 git reset --hard origin/master
 
 # Pull submodules
