@@ -52,3 +52,9 @@ git tag -d <tag_name>
 git push origin <tag_name>
 # Switch to tag
 git checkout tags/<tag_name>
+
+# git worktree: work with different branches simultaneously in different working directory
+# https://git-scm.com/docs/git-worktree
+git worktree add ../<new_branch_name>
+git worktree list
+git worktree prune
