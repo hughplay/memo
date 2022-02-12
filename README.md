@@ -1,6 +1,6 @@
 # Memo
 
-**Don't reapeat youself.**
+**Don't repeat youself.**
 
 **Save time to play more interesting things.**
 
