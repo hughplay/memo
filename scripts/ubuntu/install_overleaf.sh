@@ -24,7 +24,8 @@ vim /var/www/sharelatex/web/app/views/layout.pug
 $ docker exec sharelatex /bin/bash -c "cd /var/www/sharelatex; grunt user:create-admin --email=joe@example.com"
 
 # Transfer data
-# The most important thing is the privilege
+# The most important thing is modify the privilege of files
+# Otherwise, you may encounter: Server Error Sorry, something went wrong and your project could not be compiled. Please try again in a few moments
 #cd ~ && \
 #chown polkitd:root mongo_data && \
 #cd mongo_data && \
