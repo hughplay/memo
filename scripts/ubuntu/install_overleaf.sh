@@ -1,3 +1,8 @@
+# arm64 / raspberrypi (mongo does not support 32 bit system)
+# https://github.com/overleaf/overleaf/issues/957
+# https://tex.stackexchange.com/questions/137428/tlmgr-cannot-setup-tlpdb
+apt-get install xzdec
+
 # Pull sharelatex and compose file
 docker pull sharelatex/sharelatex
 wget https://raw.githubusercontent.com/overleaf/overleaf/master/docker-compose.yml
