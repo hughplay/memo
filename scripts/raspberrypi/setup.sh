@@ -14,3 +14,17 @@ network={
 # if encounter wifi error in raspi-config (maybe you need modify wpa_supplicant.conf first)
 sudo killall wpa_supplicant
 sudo wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
+
+
+# ubuntu
+# https://roboticsbackend.com/install-ubuntu-on-raspberry-pi-without-monitor/#Setup_Wi-Fi_and_ssh_for_your_Raspberry_Pi_4_without_a_monitor
+# in router
+arp -a
+# setup
+sudo adduser pi
+sudo adduser pi sudo
+sudo deluser ubuntu
+sudo hostnamectl set-hostname playboard
+
+# /etc/sudoers
+ubuntu ALL=(ALL) NOPASSWD:ALL
