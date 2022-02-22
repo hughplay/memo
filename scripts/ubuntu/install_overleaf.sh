@@ -31,16 +31,16 @@ $ docker exec sharelatex /bin/bash -c "cd /var/www/sharelatex; grunt user:create
 # Transfer data
 # The most important thing is modify the privilege of files
 # Otherwise, you may encounter: Server Error Sorry, something went wrong and your project could not be compiled. Please try again in a few moments
-#cd ~ && \
-#chown polkitd:root mongo_data && \
-#cd mongo_data && \
-#chown -R polkitd:input ./* && \
-#cd .. && \
-#chown root:root sharelatex_data && \
-cd sharelatex_data && \
-chown -R 33:tape ./* && \
-chown -R root:root bin && \
-#cd ..
+# chown 999:root mongo_data && \
+# cd mongo_data && \
+# chown -R 999:999 ./* && \
+# cd .. && \
+# chown root:root sharelatex_data && \
+# cd sharelatex_data && \
+# chown -R 33:33 ./* && \
+# chown -R root:root bin && \
+# cd ..
+# The best way: pack the whole folder and unpack the folder under the same user (eg. root -> root)
 
 # Issue: when using ieee_fullname bibliographystyle, all citations are showing as question marks
 # Solution: reinstall packages (some packages may not installed correctly in the previous installation)
