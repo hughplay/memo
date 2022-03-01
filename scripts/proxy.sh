@@ -1,5 +1,6 @@
 # CentOS service use proxy
 # https://www.thegeekdiary.com/how-to-configure-docker-to-use-proxy/
+# https://docs.docker.com/engine/reference/commandline/pull/#proxy-configuration
 
 mkdir /etc/systemd/system/docker.service.d
 vim /etc/systemd/system/docker.service.d/http-proxy.conf
