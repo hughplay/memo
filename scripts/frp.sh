@@ -1,4 +1,5 @@
 # https://github.com/fatedier/frp/blob/master/README_zh.md
+# https://github.com/fatedier/frp/releases
 
 # systemd - client (CentOS 7)
 sudo cp frpc /usr/bin/
@@ -19,3 +20,20 @@ systemctl daemon-reload
 systemctl enable frps
 systemctl start frps
 systemctl status frps
+
+# frpc.ini
+[common]
+server_addr = xxx.xxx.xxx.xxx
+server_port = 7000
+
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 8888
+
+[web]
+type = http
+local_ip = 127.0.0.1
+local_port = 8080
+custom_domains = http://xxx
