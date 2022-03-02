@@ -4,6 +4,7 @@
 
 # https://meta.discourse.org/t/replace-rubygems-org-with-taobao-mirror-to-resolve-network-error-in-china/21988
 # (optional) edit templates/web.china.template.yml - https://mirrors.tuna.tsinghua.edu.cn/help/rubygems/
+- gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
 # in app.yml
 templates:
   - "templates/web.china.yml"
