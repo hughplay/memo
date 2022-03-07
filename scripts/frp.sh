@@ -25,6 +25,7 @@ systemctl status frps
 [common]
 server_addr = xxx.xxx.xxx.xxx
 server_port = 7000
+tls_enable = true
 
 [ssh]
 type = tcp
