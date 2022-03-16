@@ -57,3 +57,7 @@ fmtutil-user --all
 docker run -it -v /home/sharelatex/mongo_data:/data/db mongo:4.4 bash
 mongod
 mongod --repair # not really used
+
+# Issue: files are not updated, the system seems roll backs to multiple days ago
+# Background: server port is mapped to another server's two different ports. Visit one port is not updated, but the other one is normal.
+# Reason: a previous server is started and is mapped to the "bad" port.
