@@ -18,7 +18,7 @@ Cheatsheets:
 
 Installation guide:
 
-- [setup a workspace](https://github.com/hughplay/memo/blob/master/scripts/centos/prepare_dl.sh)
+- [setup a GPU server](https://github.com/hughplay/memo/blob/master/scripts/prepare_dl.sh)
 - [tmux](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install-tmux.sh)
 - [cuda](https://github.com/hughplay/memo/blob/master/scripts/centos/install-cuda.sh)
 - [gcc](https://github.com/hughplay/memo/blob/master/scripts/centos/install-gcc.sh)
