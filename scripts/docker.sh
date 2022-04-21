@@ -14,3 +14,9 @@ docker load -i <xxx.tar>
 CMD ['sleep', 'infinity']
 # docker compose
 command ['sleep', 'infinity']
+
+# remove none images
+docker image rm -f $(docker images -f dangling=true -q)
+
+# commit modifucation
+docker commit [CONTAINER_ID] [new_image_name]
