@@ -117,3 +117,84 @@ latexmk -outdir build -pdf main.tex
 \end{algorithm}
 %% ======= ICML Template =======
 
+
+
+%% TPAMI
+
+% reduce gap between IEEEbiography
+% https://tex.stackexchange.com/questions/374612/reduce-the-gap-between-bios-in-ieeetran
+
+\vskip -2\baselineskip plus -1fil
+
+% used in bibtex
+% refere to https://github.com/Hanqer/deep-hough-transform/blob/master/LaTeX/line.bib
+% rebiber & simbiber may help
+rebiber -i xxx.bib -o xxx.bib
+simbiber --keep_keys "pages" -i xxx.bib -o xxx.bib
+
+@string(TOG = "{ACM TOG}")
+@string(SIGG = "{ACM TOG}")
+@string(SIGGA = "{ACM TOG}")
+@string(TVCG = "{IEEE TVCG}")
+@string(ICIP = "{IEEE ICIP}")
+@string(ICME = "{IEEE ICME}")
+@string(CVPRW = "{IEEE CVPRW}")
+@string(ICCVW = "{IEEE ICCVW}")
+@string(TIP = "{IEEE TIP}")
+@string(ECCV = "{ECCV}")
+@string(IJCV = "{IJCV}")
+@string(NIPS = "{NeurIPS}")
+@string(ICCV = "{ICCV}")
+@string(CVPR = "{CVPR}")
+@string(JOV = "{J. Vision}")
+@string(ICPR = "{ICPR}")
+@string(BMVC =	"{BMVC}")
+
+@string(PAMI = "{IEEE TPAMI}")
+@string(ACMMM	= "{ACM Multimedia}")
+@string(TSMC = "{IEEE TSMC}")
+@string(ICASSP = "{IEEE ICASSP}")
+@string(TMM	= "{IEEE TMM}")
+@string(CSVT = "{IEEE TCSVT}")
+
+@string(TIST = "{ACM TIST}")
+@string(PG = "{Computer Graphics Forum}")
+@string(PR = "{Pattern Recognition}")
+@string(VR = "{Vision Research}")
+
+@string(CVPR  = "{IEEE Conf. Comput. Vis. Pattern Recog.}")
+@string(CVPRW = "{IEEE Conf. Comput. Vis. Pattern Recog. Worksh.}")
+@string(ICCV  = "{Int. Conf. Comput. Vis.}")
+@string(ECCV  = "{Eur. Conf. Comput. Vis.}")
+@string(EMNLP  = "{Proc. Conf. Empir. Methods Nat. Lang. Process.}")
+@string(ICML  = "{Int. Conf. Mach. Learn.}")
+@string(NIPS  = "{Adv. Neural Inform. Process. Syst.}")
+@string(ICPR  = "{Int. Conf. Pattern Recog.}")
+@string(BMVC  = "{Brit. Mach. Vis. Conf.}")
+@string(ICIP  = "{IEEE Int. Conf. Image Process.}")
+@string(ACCV  = "{Asian Conf. Comput. Vis.}")
+@string(IJCAI = "{Int. Joint Conf. Artif. Intell.}")
+@string(ICLR  = "{Int. Conf. Learn. Represent.}")
+@string(ACMMM = "{ACM Int. Conf. Multimedia}")
+@string(ICME  = "{Int. Conf. Multimedia and Expo}")
+@string(SIGG  = "{ACM SIGGRAPH Anal. Conf.}")
+@string(SIGGA = "{ACM SIGGRAPH Conf. Asia}")
+@string(ICASSP=	"{IEEE Int. Conf. Acoust. Speech SP}")
+@string(PAMI  = "{IEEE Trans. Pattern Anal. Mach. Intell.}")
+@string(IJCV  = "{Int. J. Comput. Vis.}")
+@string(TOG   = "{ACM Trans. Graph.}")
+@string(TIP   = "{IEEE Trans. Image Process.}")
+@string(TVCG  = "{IEEE Trans. Visual. Comput. Graph.}")
+@string(TCSVT = "{IEEE Trans. Circ. Syst. Video Technol.}")
+@string(TMM   = "{IEEE Trans. Multimedia}")
+@string(PR    = "{Pattern Recogn.}")
+@string(PRL    = "{Pattern Recogn. Let.}")
+@string(SPL	  = "{IEEE Signal Process. Let.}")
+@string(VR    = "{Vis. Res.}")
+@string(JOV	  = "{J. Vis.}")
+@string(TVC   = "{The Vis. Comput.}")
+@string(JCST  = "{J. Comput. Sci. Tech.}")
+@string(CGF   = "{Comput. Graph. Forum}")
+@string(MICCAI   = "{Med. Image. Comput. Comput. Assist. Interv.}")
+@string(NAACL = "{Proc. Conf. North Amer. Chapter Assoc. Comput. Linguistics: Hum. Lang. Technol.}")
+@string(ACL   = "{Proc. Annu. Meet. Assoc. Comput. Linguistics}")
