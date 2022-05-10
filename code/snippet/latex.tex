@@ -31,6 +31,13 @@ latexmk -outdir build -pdf main.tex
 \newcommand{\rb}{\textbf{\color{forestgreen(web)}{R2}}}
 \newcommand{\rc}{\textbf{\color{awesome}{R3}}}
 
+% better ref: \ref => \cref
+\usepackage[capitalize]{cleveref}
+\crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{Tab.}{Tabs.}
+
 %% == Snipptes == %%
 
 %tabularx
@@ -117,9 +124,7 @@ latexmk -outdir build -pdf main.tex
 \end{algorithm}
 %% ======= ICML Template =======
 
-
-
-%% TPAMI
+%% ======= TPAMI =======
 
 % reduce gap between IEEEbiography
 % https://tex.stackexchange.com/questions/374612/reduce-the-gap-between-bios-in-ieeetran
@@ -131,6 +136,16 @@ latexmk -outdir build -pdf main.tex
 % rebiber & simbiber may help
 rebiber -i xxx.bib -o xxx.bib
 simbiber --keep_keys "pages" -i xxx.bib -o xxx.bib
+
+% put below @string lines in your bib "xxx.bib"
+% sample usage:
+@inproceedings{vaswani2017attention,
+ author = {Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin},
+ booktitle = NIPS,
+ pages = {5998--6008},
+ title = {Attention is All you Need},
+ year = {2017}
+}
 
 @string(TOG = "{ACM TOG}")
 @string(SIGG = "{ACM TOG}")
@@ -198,3 +213,5 @@ simbiber --keep_keys "pages" -i xxx.bib -o xxx.bib
 @string(MICCAI   = "{Med. Image. Comput. Comput. Assist. Interv.}")
 @string(NAACL = "{Proc. Conf. North Amer. Chapter Assoc. Comput. Linguistics: Hum. Lang. Technol.}")
 @string(ACL   = "{Proc. Annu. Meet. Assoc. Comput. Linguistics}")
+
+%% ======= TPAMI =======
