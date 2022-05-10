@@ -13,9 +13,9 @@ Functional tools:
 
 Cheatsheets:
 
-- [Imagemagick cheatsheet](https://github.com/hughplay/memo/blob/master/code/snippet/imagemagick.sh)
 - [Linux management](https://github.com/hughplay/memo/blob/master/code/snippet/system.sh)
 - [LaTeX tips](https://github.com/hughplay/memo/blob/master/code/snippet/latex.tex)
+- [ImageMagick & FFmpeg cheatsheet](https://github.com/hughplay/memo/blob/master/code/snippet/imagemagick_ffmpeg.sh)
 
 Installation guide:
 
