@@ -86,7 +86,7 @@ wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honuka
     && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH:-~/.oh-my-zsh}/custom/plugins/zsh-autosuggestions\
     && sed -i.bak '/plugin/s/(.*)/(git zsh-autosuggestions)/' ~/.zshrc
 # ZSH as default shell
-sudo chsh -s "$(command -v zsh)" "${USER}"
+chsh -s "$(command -v zsh)" "${USER}"
 
 
 # Install Nvidia Driver
