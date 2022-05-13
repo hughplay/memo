@@ -138,6 +138,7 @@ custom_channels:
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 EOT
 conda install -y python=3.8
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip install gpustat
 sudo nvidia-smi daemon
 gpustat -i 0.3
