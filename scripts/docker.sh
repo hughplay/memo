@@ -20,3 +20,6 @@ docker image rm -f $(docker images -f dangling=true -q)
 
 # commit modifucation
 docker commit [CONTAINER_ID] [new_image_name]
+
+# override CMD
+docker run -it --entrypoint=/bin/bash <image_name> -i
