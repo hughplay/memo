@@ -22,6 +22,53 @@ bash <(curl -L -s https://install.direct/go.sh)
 firewall-cmd --zone=public --permanent --add-port=8001/tcp
 firewall-cmd --reload
 
+# routing
+# https://toutyrater.github.io/basic/routing/cndirect.html
+{
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "serveraddr.com",
+            "port": 16823,  
+            "users": [
+              {
+                "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+                "alterId": 64
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    }    
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": ["geosite:cn"]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "ip": [
+          "geoip:cn",
+          "geoip:private"
+        ]
+      }
+    ]
+  }
+}
+
 # client: https://www.v2ray.com/awesome/tools.html
 # Mac OS X: https://github.com/Cenmrev/V2RayX
 
