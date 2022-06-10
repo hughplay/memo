@@ -26,6 +26,12 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 """
+
+# Issue: Certificate verification failed, https://github.com/tuna/issues/issues/1342
+# Solution 1: change https to http 
+# Solution 2: update ca-certificates first:
+sudo apt-get install --only-upgrade ca-certificates
+
 sudo apt-get update && sudo apt-get install -y --allow-downgrades --allow-change-held-packages --no-install-recommends \
     build-essential \
     cmake \
