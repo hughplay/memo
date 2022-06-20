@@ -77,3 +77,12 @@ du ./* -h -d 0
 free -h
 # usb
 lsusb
+
+# Format & Mount disk
+lsblk -f
+sudo mkfs.ext4 /dev/sdx
+lsblk -f
+sudo mkdir <mount_point>
+sudo vim /etc/fstab
+# UUID=<uuid> <mount_point> ext4 defaults 0 0
+sudo mount -a
