@@ -78,7 +78,8 @@ sudo apt-get install -y libevent-dev ncurses-dev automake pkg-config \
     && ./autogen.sh \
     && ./configure --prefix=/usr/local \
     && make \
-    && sudo make install
+    && sudo make install \
+    && rm -rf /tmp/tmux-2.8 /tmp/tmux-2.8.tar.gz
 git clone https://github.com/hughplay/tmux-config.git /tmp/tmux-config \
     && bash /tmp/tmux-config/install.sh \
     && rm -rf /tmp/tmux-config \
