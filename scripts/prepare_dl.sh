@@ -96,7 +96,7 @@ wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honuka
 chsh -s "$(command -v zsh)" "${USER}"
 
 
-# Install Nvidia Driver
+# Install Nvidia Driver - 20.04
 # https://developer.nvidia.com/cuda-downloads
 wget https://developer.download.nvidia.com/compute/cuda/11.6.2/local_installers/cuda_11.6.2_510.47.03_linux.run
 sudo sh cuda_11.6.2_510.47.03_linux.run
@@ -116,6 +116,15 @@ To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.6/bin
 To uninstall the NVIDIA Driver, run nvidia-uninstall
 Logfile is /var/log/cuda-installer.log
 """
+
+# Install Nvidia Driver - 18.04
+# https://developer.nvidia.com/cuda-downloads
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+sudo apt-get update
+sudo apt-get -y install cuda
 
 
 # Install Miniconda
