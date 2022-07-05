@@ -1,5 +1,6 @@
 # Prepare GPUs for deep learning
 
+sudo timedatectl set-timezone "Asia/Shanghai"
 
 # Add user
 sudo adduser xxx
