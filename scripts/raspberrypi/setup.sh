@@ -15,7 +15,6 @@ network={
 sudo killall wpa_supplicant
 sudo wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0
 
-
 # ubuntu
 # https://roboticsbackend.com/install-ubuntu-on-raspberry-pi-without-monitor/#Setup_Wi-Fi_and_ssh_for_your_Raspberry_Pi_4_without_a_monitor
 # in router
@@ -28,3 +27,17 @@ sudo hostnamectl set-hostname playboard
 
 # /etc/sudoers
 ubuntu ALL=(ALL) NOPASSWD:ALL
+
+# ubuntu 20.04 - wifi
+sudo apt install NetworkManager
+sudo vim /etc/01-netcfg.yaml
+network:
+    version: 2
+	renderer: NetworkManager
+	ethernets:
+		eth0:
+			dhcp4: true
+			dhcp6: true
+			optional: true
+sudo netplan generaton
+sudo netplan apply
