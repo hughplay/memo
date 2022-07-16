@@ -183,3 +183,12 @@ sudo systemctl restart docker
 # test
 sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
+
+# Format & Mount disk
+lsblk -f
+sudo mkfs.ext4 /dev/sdx
+lsblk -f
+sudo mkdir <mount_point>
+sudo vim /etc/fstab
+# UUID=<uuid> <mount_point> ext4 defaults 0 0
+sudo mount -a
