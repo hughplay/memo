@@ -17,6 +17,7 @@ Cheatsheets:
 - [Linux management](https://github.com/hughplay/memo/blob/master/code/snippet/system.sh)
 - [LaTeX tips](https://github.com/hughplay/memo/blob/master/code/snippet/latex.tex)
 - [ImageMagick & FFmpeg cheatsheet](https://github.com/hughplay/memo/blob/master/code/snippet/imagemagick_ffmpeg.sh)
+- [Docker](https://github.com/hughplay/memo/blob/master/scripts/docker.sh)
 
 Installation guide:
 
