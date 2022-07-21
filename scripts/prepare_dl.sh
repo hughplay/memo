@@ -62,6 +62,37 @@ sudo apt-get update && sudo apt-get install -y --allow-downgrades --allow-change
     lsb-release
 
 
+# Install Nvidia Driver - Ubuntu 20.04
+# https://developer.nvidia.com/cuda-downloads
+wget https://developer.download.nvidia.com/compute/cuda/11.6.2/local_installers/cuda_11.6.2_510.47.03_linux.run
+sudo sh cuda_11.6.2_510.47.03_linux.run
+"""
+===========
+= Summary =
+===========
+
+Driver:   Installed
+Toolkit:  Installed in /usr/local/cuda-11.6/
+
+Please make sure that
+ -   PATH includes /usr/local/cuda-11.6/bin
+ -   LD_LIBRARY_PATH includes /usr/local/cuda-11.6/lib64, or, add /usr/local/cuda-11.6/lib64 to /etc/ld.so.conf and run ldconfig as root
+
+To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.6/bin
+To uninstall the NVIDIA Driver, run nvidia-uninstall
+Logfile is /var/log/cuda-installer.log
+"""
+
+# Install Nvidia Driver - Ubuntu 18.04
+# https://developer.nvidia.com/cuda-downloads
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+sudo apt-get update
+sudo apt-get -y install cuda
+
+
 # Install v2ray as you may need :)
 # https://github.com/v2fly/v2ray-core/releases/latest
 wget https://hub.fastgit.xyz/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
@@ -95,37 +126,6 @@ wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honuka
     && sed -i.bak '/plugin/s/(.*)/(git zsh-autosuggestions)/' ~/.zshrc
 # ZSH as default shell
 chsh -s "$(command -v zsh)" "${USER}"
-
-
-# Install Nvidia Driver - 20.04
-# https://developer.nvidia.com/cuda-downloads
-wget https://developer.download.nvidia.com/compute/cuda/11.6.2/local_installers/cuda_11.6.2_510.47.03_linux.run
-sudo sh cuda_11.6.2_510.47.03_linux.run
-"""
-===========
-= Summary =
-===========
-
-Driver:   Installed
-Toolkit:  Installed in /usr/local/cuda-11.6/
-
-Please make sure that
- -   PATH includes /usr/local/cuda-11.6/bin
- -   LD_LIBRARY_PATH includes /usr/local/cuda-11.6/lib64, or, add /usr/local/cuda-11.6/lib64 to /etc/ld.so.conf and run ldconfig as root
-
-To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.6/bin
-To uninstall the NVIDIA Driver, run nvidia-uninstall
-Logfile is /var/log/cuda-installer.log
-"""
-
-# Install Nvidia Driver - 18.04
-# https://developer.nvidia.com/cuda-downloads
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
-sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
-sudo apt-get update
-sudo apt-get -y install cuda
 
 
 # Install Miniconda
