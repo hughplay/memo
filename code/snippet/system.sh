@@ -86,3 +86,8 @@ sudo mkdir <mount_point>
 sudo vim /etc/fstab
 # UUID=<uuid> <mount_point> ext4 defaults 0 0
 sudo mount -a
+
+# Ensuring new files in a directory belong to the group
+# https://blog.superuser.com/2011/04/22/linux-permissions-demystified/
+sudo chown <owner>:<group> <dir>
+sudo chmod g+s <dir>
