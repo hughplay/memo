@@ -41,3 +41,12 @@ pprint(info)
 
 # Better install opencv with Anaconda
 conda install -c conda-forge opencv=3.4.4
+
+# Mac iTerm2 alt
+# https://www.clairecodes.com/blog/2018-10-15-making-the-alt-key-work-in-iterm2/
+⌥←
+Send Escape Sequence
+“Esc +” “b”
+⌥→
+Send Escape Sequence
+“Esc +” “f”
