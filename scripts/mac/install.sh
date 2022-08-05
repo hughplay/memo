@@ -50,3 +50,5 @@ Send Escape Sequence
 ⌥→
 Send Escape Sequence
 “Esc +” “f”
+# https://github.com/fish-shell/fish-shell/issues/2124#issuecomment-109204491
+let option key Esc+
