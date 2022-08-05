@@ -52,3 +52,6 @@ Send Escape Sequence
 “Esc +” “f”
 # https://github.com/fish-shell/fish-shell/issues/2124#issuecomment-109204491
 let option key Esc+
+
+# xxx.app is damaged
+sudo xattr -d com.apple.quarantine /Applications/xxx.app
