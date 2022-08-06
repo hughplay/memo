@@ -59,3 +59,4 @@ sudo xattr -d com.apple.quarantine /Applications/xxx.app
 # vscode repeating keyboard
 # https://stackoverflow.com/questions/39972335/how-do-i-press-and-hold-a-key-and-have-it-repeat-in-vscode
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
