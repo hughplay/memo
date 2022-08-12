@@ -6,10 +6,15 @@
 
 ## Selected items
 
-Functional tools:
+Installation guide:
 
-- [A ray template for data processing](https://github.com/hughplay/memo/blob/master/code/startup/ray/run.py): Jobs are distributed by message queue to achieve load balance.
-- [A watcher tool](https://github.com/hughplay/memo/blob/master/code/snippet/watcher.py): Wating for executing a command until the condition is achieved.
+- [setup a GPU server](https://github.com/hughplay/memo/blob/master/scripts/prepare_dl.sh): Setup a GPU server within half a hour with these common used commands.
+- [tmux](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install-tmux.sh): Install tmux without sudo permission.
+- [cuda](https://github.com/hughplay/memo/blob/master/scripts/centos/install-cuda.sh): Guides for setup CUDA drivers.
+- [gcc](https://github.com/hughplay/memo/blob/master/scripts/centos/install-gcc.sh): A script for compiling gcc without sudo permission.
+- [overleaf](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_overleaf.sh): Setup a local overleaf server.
+- [discourse](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_discourse.sh): Setup a local discourse server.
+- [WebDAV](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install-webdav.sh): Setup a personal WebDAV server for syncing application data such as Zotero.
 
 Cheatsheets:
 
@@ -19,12 +24,7 @@ Cheatsheets:
 - [ImageMagick & FFmpeg cheatsheet](https://github.com/hughplay/memo/blob/master/code/snippet/imagemagick_ffmpeg.sh)
 - [Docker](https://github.com/hughplay/memo/blob/master/scripts/docker.sh)
 
-Installation guide:
+Functional tools:
 
-- [setup a GPU server](https://github.com/hughplay/memo/blob/master/scripts/prepare_dl.sh)
-- [tmux](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install-tmux.sh)
-- [cuda](https://github.com/hughplay/memo/blob/master/scripts/centos/install-cuda.sh)
-- [gcc](https://github.com/hughplay/memo/blob/master/scripts/centos/install-gcc.sh)
-- [overleaf](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_overleaf.sh)
-- [discourse](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_discourse.sh)
-- [WebDAV](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install-webdav.sh)
+- [A ray template for data processing](https://github.com/hughplay/memo/blob/master/code/startup/ray/run.py): Jobs are distributed by message queue to achieve load balance.
+- [A watcher tool](https://github.com/hughplay/memo/blob/master/code/snippet/watcher.py): Wating for executing a command until the condition is achieved.
