@@ -58,6 +58,74 @@ latexmk -outdir build -pdf main.tex
     \end{tabular}
 \end{table*}
 
+% small font
+\begin{small}
+\end{small}
+
+% tiny font
+\begin{tiny}
+\end{tiny}
+
+% free layout: minipage
+% ----------------
+%   A |  B1 |  B2  
+%   A | ----------
+%   A |     C     
+% ----------------
+\begin{figure}[t]
+
+\begin{minipage}[c]{0.375\textwidth}
+A
+\end{minipage}
+\hspace{2pt}
+\begin{minipage}[c]{0.62\textwidth}
+\begin{minipage}[c]{0.4\linewidth}
+B1
+\end{minipage}
+\begin{minipage}[c]{0.29\linewidth}
+B2
+\end{minipage}
+\end{minipage}
+
+\vspace{5pt}
+C
+\end{tiny}
+\end{minipage}
+
+\caption{Layout with minipages.}
+\label{fig:fig}
+\end{figure}
+
+% subfigure
+\begin{figure}[t]
+     \centering
+     \begin{subfigure}[b]{0.38\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{a}
+         \caption{}
+         \label{fig:categories_dist}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{b}
+         \vspace{0.3pt}
+         \caption{}
+         \label{fig:worldcloud}
+     \end{subfigure}
+    \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{c}
+         \caption{}
+         \label{fig:steps_dist}
+     \end{subfigure}
+
+    \caption{Figure title.}
+    
+    \label{fig:distributions}
+\end{figure}
+
 %% ======= TPAMI =======
 
 % reduce gap between IEEEbiography
