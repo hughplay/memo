@@ -40,6 +40,22 @@ latexmk -outdir build -pdf main.tex
 
 %% == Snipptes == %%
 
+% Put figure just after the title
+% extra: remove \maketitle
+
+\twocolumn[{%
+\renewcommand\twocolumn[1][]{#1}%
+\maketitle
+\begin{center}
+    \centering
+    \captionsetup{type=figure}
+    
+    \includegraphics[width=\linewidth]{xxx.pdf}
+    \captionof{figure}{xxx}
+    \label{fig:statistics}
+\end{center}%
+}]
+
 % sample table with multirow multi column
 \usepackage{multirow}
 \begin{table*}[t]
