@@ -82,6 +82,31 @@ latexmk -outdir build -pdf main.tex
 \begin{tiny}
 \end{tiny}
 
+% multirow & multicolumn table
+
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & \multirow{2}{*}{Train} & \multicolumn{3}{c}{Val} & \multicolumn{3}{c}{Test} & \multirow{2}{*}{All} \\
+ \cmidrule[.5pt](lr){3-5}  \cmidrule[.5pt](lr){6-8}
+ &  & unseen & seen & total & unseen & seen & total &  \\
+\midrule
+Dish & 922 & 95 & 59 & 154 & 103 & 55 & 158 & 1118 \\
+Drink and Snack & 804 & 83 & 58 & 141 & 88 & 58 & 146 & 968 \\
+Electrical Appliance & 472 & 34 & 65 & 99 & 41 & 59 & 100 & 546 \\
+Furniture and Decoration & 481 & 51 & 32 & 83 & 45 & 48 & 93 & 577 \\
+Gadgets & 414 & 33 & 49 & 82 & 40 & 44 & 84 & 487 \\
+Housework & 406 & 48 & 27 & 75 & 40 & 29 & 69 & 494 \\
+Leisure and Performance & 408 & 39 & 46 & 85 & 39 & 46 & 85 & 485 \\
+Nursing and Care & 316 & 29 & 37 & 66 & 27 & 39 & 66 & 371 \\
+Pets and Fruit & 208 & 20 & 22 & 42 & 22 & 23 & 45 & 249 \\
+Science and Craft & 395 & 37 & 45 & 82 & 42 & 45 & 87 & 473 \\
+Sport & 167 & 18 & 17 & 35 & 22 & 16 & 38 & 207 \\
+Vehicle & 541 & 56 & 54 & 110 & 50 & 70 & 120 & 643 \\
+\midrule
+Total & 5534 & 543 & 511 & 1054 & 559 & 532 & 1091 & 6618 \\
+\bottomrule
+\end{tabular}
+
 % free layout: minipage
 % ----------------
 %   A |  B1 |  B2  
