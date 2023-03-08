@@ -1,6 +1,5 @@
 # https://www.techrepublic.com/article/how-to-enable-webdav-on-your-ubuntu-server/
-sudo apt-get install apache2
-apt-get update
+sudo apt-get -y install apache2
 sudo a2enmod dav
 sudo systemctl restart apache2
 # optional change port
