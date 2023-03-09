@@ -12,7 +12,7 @@ forward() {
 
     case "$1" in
         wind)
-            forward_host="<middle_machine_ip>"
+            forward_host="<username>@<ip>"
             forward_host_port="22"
             forward_address="<target_machine_ip>"
             ;;
