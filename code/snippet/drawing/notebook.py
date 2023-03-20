@@ -3,6 +3,11 @@
 # download fonts: https://boldfonts.com/
 # https://scentellegher.github.io/visualization/2018/05/02/custom-fonts-matplotlib.html
 # copy you fronts to /usr/share/fonts/truetype (ubuntu)
+# fonts include:
+#   - Arial (recommended)
+#   - Helvetica
+#   - Palatino Linotype
+#   - Times New Roman
 wget https://github.com/hughplay/memo/raw/master/code/snippet/drawing/plot_fonts.tar.gz
 tar zxvf plot_fonts.tar.gz
 sudo cp plot_fonts/* /usr/share/fonts/truetype/
