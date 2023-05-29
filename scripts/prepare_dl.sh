@@ -239,3 +239,7 @@ sudo nano /etc/fstab
 # Save the changes and exit the text editor
 # Reboot the server to apply the changes and verify the mount
 sudo reboot
+
+# nvidia-smi hangs issue
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+sudo reboot -f
