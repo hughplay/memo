@@ -203,12 +203,39 @@ sudo systemctl restart docker
 # test
 sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
-
+# check the disk
+lsblk
 # Format & Mount disk
-lsblk -f
 sudo mkfs.ext4 /dev/sdx
 lsblk -f
 sudo mkdir <mount_point>
 sudo vim /etc/fstab
 # UUID=<uuid> <mount_point> ext4 defaults 0 0
 sudo mount -a
+
+# use LVM to merge two disks into one logical volume
+# Install necessary software packages
+sudo apt-get install mdadm lvm2
+# Create a RAID array
+sudo mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/nvme1n1 /dev/nvme0n1
+# Verify RAID array creation
+cat /proc/mdstat
+# Initialize LVM on the RAID array
+sudo pvcreate /dev/md0
+# Create a volume group (VG)
+sudo vgcreate <vg-name> /dev/md0
+# Create a logical volume (LV) within the volume group
+sudo lvcreate -n <lv-name> -l 100%FREE <vg-name>
+# Format the logical volume with a file system
+sudo mkfs.ext4 /dev/<vg-name>/<lv-name>
+# Create a mount point for the logical volume
+sudo mkdir /mnt/<mount-point>
+# Mount the logical volume
+sudo mount /dev/<vg-name>/<lv-name> /mnt/<mount-point>
+# Update /etc/fstab to automatically mount the logical volume
+sudo nano /etc/fstab
+# Add the following line to the end of the file:
+# /dev/<vg-name>/<lv-name>   /mnt/<mount-point>   ext4   defaults   0 0
+# Save the changes and exit the text editor
+# Reboot the server to apply the changes and verify the mount
+sudo reboot
