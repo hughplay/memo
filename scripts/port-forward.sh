@@ -1,3 +1,12 @@
+# Usage: (target server (forward port) -> ssh login server -> local machine (local port))
+#   1. add the snippet to your ~/.bashrc, ~/.zshrc, or other shell profile
+#   2. modify lines below `ports customization`:
+#     - forward_host: username@ip for ssh login
+#     - forward_host_port: ssh login port
+#     - forward_address: the IP of server that you want to forward ports, could be 127.0.0.1 (ssh login server), or any other servers' IP that ssh login server can reach.
+#   3. run `. ~/.bashrc` to load the snippet to the shell
+#   4. example run in your local machine: `forward wind 8888 8888`
+
 ## Forward port
 forward() {
 
@@ -9,7 +18,8 @@ forward() {
     local forward_host_port="22"
     local local_port=""
     local forward_command=""
-
+    
+    # ports customization
     case "$1" in
         wind)
             forward_host="<username>@<ip>"
