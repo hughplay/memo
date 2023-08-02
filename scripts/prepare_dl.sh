@@ -1,4 +1,6 @@
 # Prepare GPUs for deep learning
+# Note: This script is not meant to be run directly. .sh is just for syntax highlighting.
+#       Please copy the command you need and run it in the shell one by one.
 
 sudo timedatectl set-timezone "Asia/Shanghai"
 
@@ -179,6 +181,9 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip install gpustat
 sudo nvidia-smi daemon
 gpustat -i 0.3
+
+# PyTorch stable wheels mirror: https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
+pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1+cu111 -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
 
 # Install docker
 curl https://get.docker.com | sh \
