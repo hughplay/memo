@@ -248,3 +248,36 @@ sudo reboot
 # nvidia-smi hangs issue
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 sudo reboot -f
+
+
+## server monitoring with netdata
+
+# install netdata
+wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates --stable-channel --disable-telemetry
+
+# change hostname
+cd /etc/netdata 2>/dev/null || cd /opt/netdata/etc/netdata
+sudo update-alternatives --config editor  # select vim if you need
+# [global]
+# hostname: xxx
+sudo systemctl restart netdata
+
+# enable nvidia-smi
+sudo ./edit-config go.d.conf
+# nvidia_smi: yes
+sudo systemctl restart netdata
+
+# collect data from multiple servers to the center server
+# https://learn.netdata.cloud/docs/streaming/understanding-how-streaming-works#enable-streaming-on-the-parent-node
+# (parent)
+uuidgen
+sudo ./edit-config stream.conf
+# replace [API_KEY] with [<uuidgen result>]
+[<uuidgen result>]
+    enabled = yes
+    default memory mode = dbengine
+# (child)
+[stream]
+    enabled = yes 
+    destination = <parent IP>
+    api key = <uuidgen of parent>
