@@ -149,7 +149,7 @@ wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honuka
 # ZSH as default shell
 chsh -s "$(command -v zsh)" "${USER}"
 
-
+"""
 # Install Miniconda
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/install-conda.sh \
     && chmod +x /tmp/install-conda.sh \
@@ -176,6 +176,8 @@ custom_channels:
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 EOT
+"""
+
 conda install -y python=3.8
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip install gpustat
@@ -281,3 +283,6 @@ sudo ./edit-config stream.conf
     enabled = yes 
     destination = <parent IP>
     api key = <uuidgen of parent>
+
+
+# umount busy disks: https://stackoverflow.com/questions/7878707/how-to-unmount-a-busy-device
