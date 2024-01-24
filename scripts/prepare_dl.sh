@@ -104,6 +104,8 @@ To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.6/bin
 To uninstall the NVIDIA Driver, run nvidia-uninstall
 Logfile is /var/log/cuda-installer.log
 """
+# Issue: WARNING: An NVIDIA kernel module 'nvidia' appears to be already loaded in your kernel.
+sudo lsof /dev/nvidia*
 
 # Install Nvidia Driver - Ubuntu 18.04
 # https://developer.nvidia.com/cuda-downloads
