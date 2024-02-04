@@ -69,6 +69,8 @@ rake posts:rebake
 
 ## Restore backup
 # https://meta.discourse.org/t/restore-a-backup-from-command-line/108034
+mkdir -p shared/standalone/backups/default
+# put <name>.tar.gz under the created folder
 ./launcher enter app
 discourse enable_restore
 discourse restore <name>.tar.gz
