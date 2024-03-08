@@ -37,6 +37,6 @@ service nginx force-reload
 # 4. update
 # acme.sh will update CA automatically every 60 days
 # check `crontab -l` to see the cron job, it will be like:
-38 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
+0 1 1 * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --force > /dev/null && systemctl restart nginx
 # you can run it manually to see if it works
 "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --force
