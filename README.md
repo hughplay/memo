@@ -15,7 +15,7 @@ Installation guide:
 - [overleaf](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_overleaf.sh) [:memo:](https://github.com/hughplay/memo/edit/master/scripts/ubuntu/install_overleaf.sh): Setup a local overleaf server.
 - [discourse](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install_discourse.sh) [:memo:](https://github.com/hughplay/memo/edit/master/scripts/ubuntu/install_discourse.sh): Setup a local discourse server.
 - [WebDAV](https://github.com/hughplay/memo/blob/master/scripts/ubuntu/install-webdav.sh) [:memo:](https://github.com/hughplay/memo/edit/master/scripts/ubuntu/install-webdav.sh): Setup a personal WebDAV server for syncing application data such as Zotero.
-- [setup https certificate](https://github.com/hughplay/memo/blob/master/scripts/https.sh) [:memo:](https://github.com/hughplay/memo/edit/master/scripts/https.sh): Setup certificate for accessing your website through https protocol.
+- [setup https certificate](https://github.com/hughplay/memo/blob/master/scripts/https.sh) [:memo:](https://github.com/hughplay/memo/edit/master/scripts/https.sh): Setup a certificate for accessing your website through https protocol.
 
 Cheatsheets:
 
