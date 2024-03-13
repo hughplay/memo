@@ -91,3 +91,22 @@ sudo mount -a
 # https://blog.superuser.com/2011/04/22/linux-permissions-demystified/
 sudo chown <owner>:<group> <dir>
 sudo chmod g+s <dir>
+
+# group disks with LVM
+sudo apt install lvm2
+sudo fdisk -l
+sudo fdisk /dev/xxx
+g
+n
+enter
+enter
+enter
+w
+sudo pvcreate /dev/xxx1  # note: input the partitioned volume, usually has a suffix "1"
+sudo vgcreate hddvg /dev/xxx1 /dev/xxx1 ...  # replace hddvg with your prefer name, and following all disks
+sudo lvcreate -n hddlv -l 100%FREE hddvg
+sudo mkfs.ext4 /dev/hddvg/hddlv
+sudo mkdir /hdd
+sudo vim /etc/fstab
+/dev/hddvg/hddlv  /hdd  ext4  defaults  0  2
+sudo mount -a
