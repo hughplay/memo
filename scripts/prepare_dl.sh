@@ -212,6 +212,30 @@ sudo systemctl restart docker
 # test
 sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
+
+# docker pull through proxy: method 1
+sudo mkdir /etc/systemd/system/docker.service.d
+sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:8001/"
+Environment="HTTPS_PROXY=http://127.0.0.1:8001/"
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+# docker pull through proxy: method 2
+sudo mkdir /etc/docker
+sudo vim /etc/docker/daemon.json
+{
+  "proxies": {
+    "default": {
+      "httpProxy": "http://127.0.0.1:8001",
+      "httpsProxy": "https://127.0.0.1:8001",
+      "noProxy": "localhost,127.0.0.1"
+    }
+  }
+}
+sudo service docker restart
+
 # check the disk
 lsblk
 # Format & Mount disk
