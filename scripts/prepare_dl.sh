@@ -199,6 +199,16 @@ newgrp docker
 # test
 docker run hello-world
 
+# add proxy for docker
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
+"""
+[Service]
+Environment="HTTP_PROXY=http://proxy.example.com:8080/"
+Environment="HTTPS_PROXY=https://proxy.example.com:8080/"
+"""
+sudo systemctl daemon-reload
+
 
 # Install nvidia-docker2
 # https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
