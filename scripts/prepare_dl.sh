@@ -199,17 +199,6 @@ newgrp docker
 # test
 docker run hello-world
 
-# add proxy for docker
-sudo mkdir -p /etc/systemd/system/docker.service.d
-sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
-"""
-[Service]
-Environment="HTTP_PROXY=http://proxy.example.com:8080/"
-Environment="HTTPS_PROXY=https://proxy.example.com:8080/"
-"""
-sudo systemctl daemon-reload
-
-
 # Install nvidia-docker2
 # https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
@@ -223,16 +212,17 @@ sudo systemctl restart docker
 sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
 
-# docker pull through proxy: method 1
+# add proxy for docker
+## docker pull through proxy: method 1 (verfied)
 sudo mkdir /etc/systemd/system/docker.service.d
 sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
 [Service]
-Environment="HTTP_PROXY=http://127.0.0.1:8001/"
-Environment="HTTPS_PROXY=http://127.0.0.1:8001/"
+Environment="HTTP_PROXY=http://proxy.example.com:8001/"
+Environment="HTTPS_PROXY=http://proxy.example.com:8001/"
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-# docker pull through proxy: method 2
+## docker pull through proxy: method 2
 sudo mkdir /etc/docker
 sudo vim /etc/docker/daemon.json
 {
