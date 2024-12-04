@@ -275,9 +275,18 @@ sudo reboot
 
 
 # setup a group shared disk
+## create a new group
+sudo groupadd <share_grp>
+## create a shared folder with group owner as <share_grp>
 sudo mkdir /data/share
 sudo chgrp <share_grp> /data/share
 sudo chmod g+s /data/share
+## add user to the group
+sudo usermod -aG <share_grp> <username>
+## user test (user with <username>)
+newgrp <share_grp>
+mkdir /data/share/test
+ls -alh /data/share  # folder test's owner should be <username>:<share_grp>
 
 
 # nvidia-smi hangs issue
