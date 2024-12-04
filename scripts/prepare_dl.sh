@@ -273,6 +273,13 @@ sudo nano /etc/fstab
 # Reboot the server to apply the changes and verify the mount
 sudo reboot
 
+
+# setup a group shared disk
+sudo mkdir /data/share
+sudo chgrp <share_grp> /data/share
+sudo chmod g+s /data/share
+
+
 # nvidia-smi hangs issue
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 sudo reboot -f
