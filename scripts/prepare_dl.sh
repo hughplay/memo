@@ -328,3 +328,6 @@ sudo ./edit-config stream.conf
 
 
 # umount busy disks: https://stackoverflow.com/questions/7878707/how-to-unmount-a-busy-device
+
+# repair xfs disk when it hangs when mounting
+sudo xfs_repair -L /dev/sdb1
