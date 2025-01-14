@@ -331,3 +331,8 @@ sudo ./edit-config stream.conf
 
 # repair xfs disk when it hangs when mounting
 sudo xfs_repair -L /dev/sdb1
+
+# prevent OOM
+sudo apt install earlyoom
+sudo systemctl enable earlyoom
+sudo systemctl start earlyoom
