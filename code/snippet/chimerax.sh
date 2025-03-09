@@ -56,3 +56,9 @@ show sel target ab
 
 hide sel target a
 sel clear
+
+
+lighting shadows true intensity 0.5
+hbonds reveal true
+contacts ignoreHiddenModels true
+
