@@ -190,8 +190,15 @@ gpustat -i 0.3
 pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1+cu111 -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
 
 # Install docker
-curl https://get.docker.com | sh \
-  && sudo systemctl --now enable docker
+sudo -s
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+    | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
+    && echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
+    && apt-get update \
+    && apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin \
+    && rm -rf /var/lib/apt/lists/*
 # https://docs.docker.com/engine/install/linux-postinstall/
 sudo usermod -aG docker $USER
 # relogin or run:
