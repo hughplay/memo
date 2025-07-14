@@ -287,7 +287,7 @@ sudo groupadd <share_grp>
 ## create a shared folder with group owner as <share_grp>
 sudo mkdir /data/share
 sudo chgrp <share_grp> /data/share
-sudo chmod g+s /data/share
+sudo chmod g+sw /data/share
 ## add user to the group
 sudo usermod -aG <share_grp> <username>
 ## user test (user with <username>)
