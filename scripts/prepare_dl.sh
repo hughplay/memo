@@ -182,9 +182,9 @@ EOT
 
 conda install -y python=3.8
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-pip install gpustat
+pip install sh nvitop
 sudo nvidia-smi daemon
-gpustat -i 0.3
+nvitop
 
 # PyTorch stable wheels mirror: https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
 pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1+cu111 -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
