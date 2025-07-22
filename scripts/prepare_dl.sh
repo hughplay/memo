@@ -177,6 +177,7 @@ custom_channels:
   menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  nvidia: https://mirrors.sustech.edu.cn/anaconda-extra/cloud
 EOT
 """
 
