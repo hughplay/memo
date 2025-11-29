@@ -340,7 +340,24 @@ sudo ./edit-config stream.conf
 # repair xfs disk when it hangs when mounting
 sudo xfs_repair -L /dev/sdb1
 
+
 # prevent OOM
 sudo apt install earlyoom
 sudo systemctl enable earlyoom
 sudo systemctl start earlyoom
+
+
+# test IO speed
+sudo apt install fio
+
+fio --name=seqwrite --directory=/data \
+    --rw=write --bs=1M --size=10G --numjobs=1 \
+    --ioengine=libaio --iodepth=64
+
+fio --name=seqread --directory=/data \
+    --rw=read --bs=1M --size=10G --numjobs=1 \
+    --ioengine=libaio --iodepth=64
+
+fio --name=randrw --directory=/data \
+    --size=4G --bs=4K --rw=randrw --rwmixread=70 \
+    --numjobs=8 --iodepth=32
