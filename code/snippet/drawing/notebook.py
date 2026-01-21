@@ -21,19 +21,25 @@ rm -fr ~/.cache/matplotlib
 import matplotlib.font_manager
 print(sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist]))
 
+# General settings: http://www.futurile.net/2016/02/27/matplotlib-beautiful-plots-with-style/
+import matplotlib.pyplot as plt
+import matplotlib.font_manager
 
 # change style of matplotlib
 # -------
 # https://matplotlib.org/stable/tutorials/introductory/customizing.html#using-style-sheets
 # https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html
-plt.style.use('seaborn-muted')
 
-# General settings: http://www.futurile.net/2016/02/27/matplotlib-beautiful-plots-with-style/
-import matplotlib.pyplot as plt
-import matplotlib.font_manager
+STYLE = 'seaborn-v0_8-muted'
+try:
+    plt.style.use(STYLE)
+except Exception as e:
+    print(f"Failed to use {STYLE} style: {e}")
+    print(f"\nAvailable styles:")
+    print(plt.style.available)
+    plt.style.use('default')
+
 print(f"available fonts: {sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])}")
-
-plt.style.use('seaborn-muted')
 
 plt.rcParams["figure.dpi"] = 300
 plt.rcParams["savefig.dpi"] = 300
@@ -43,7 +49,7 @@ plt.rcParams["savefig.pad_inches"] = 0.1
 
 plt.rcParams['figure.titlesize'] = 18
 plt.rcParams['axes.titlesize'] = 18
-plt.rcParams['font.family'] = 'Helvetica'
+plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['font.size'] = 18
 
 plt.rcParams["lines.linewidth"] = 2
@@ -59,6 +65,7 @@ plt.rcParams['mathtext.fontset'] = 'dejavuserif'
 plt.rcParams['mathtext.it'] = 'serif:italic'
 plt.rcParams['lines.marker'] = ""
 plt.rcParams['legend.frameon'] = False
+
 
 
 # subplots
